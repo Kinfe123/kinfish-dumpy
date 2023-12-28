@@ -43,8 +43,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
         className={`antialiased overflow-x-hidden overflow-y-auto h-[100%]  w-screen  bg-white dark:bg-gradient-to-tr from-black to-purple-950 text-slate-900 dark:text-slate-50 ${inter.className} ${fontHeading.className} ${fontSubHeading.className} ${fontHeadingAlt.variable} `}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="max-w-4xl mx-auto py-10 px-4 ">
-            <Spotlight fill="#9284D4" />
+         
+
+          <div className="w-full mx-auto py-10 px-4 ">
             <header>
               <FloatingNav navItems={navItems} />
               {/* for static navbar  */}

@@ -5,7 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Button } from "../ui/button";
+<<<<<<< Updated upstream
 import Feeder from "../ui/feeder";
+=======
+import Spotlight from "../ui/Spotlight";
+>>>>>>> Stashed changes
 
 export default function HeroSection() {
   const ref = React.useRef(null);
@@ -16,7 +20,10 @@ export default function HeroSection() {
     show: { opacity: 1, y: 0, transition: { type: "spring" } },
   };
   return (
-    <div className="mx-auto max-w-7xl mt-12 px-6 lg:px-8 bg-transparent">
+    <div className="mx-auto max-w-4xl mt-12 px-6 lg:px-8 bg-transparent">
+      <div className="max-w-4xl">
+        <Spotlight fill="#9284D4" />
+      </div>
       <div className="mx-auto max-w-2xl text-center ">
         <motion.div
           initial="hidden"
@@ -37,18 +44,21 @@ export default function HeroSection() {
             variants={FADE_DOWN_ANIMATION_VARIANTS}
             className="text-4xl font-bold font-headingAlt tracking-tight sm:text-6xl"
           >
+<<<<<<< Updated upstream
             <Feeder />
             <div className="mb-4">
 
             </div>
             Beautiful Framer Motion Animations
+=======
+            Beautifully made thoughts compilation
+>>>>>>> Stashed changes
           </motion.h1>
           <motion.p
             variants={FADE_DOWN_ANIMATION_VARIANTS}
             className="mt-6 text-lg leading-8"
           >
-            A collection of handmade, free, and ready to use animations &
-            variants for your next project.
+            A collection of handmadeand crafted thought from KiNFiSH
           </motion.p>
 
           <motion.div
