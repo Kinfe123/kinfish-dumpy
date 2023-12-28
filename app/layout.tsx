@@ -40,7 +40,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body
-        className={`antialiased overflow-x-hidden overflow-y-auto h-[100%]  w-screen  bg-white dark:bg-gradient-to-tr from-black to-purple-950 text-slate-900 dark:text-slate-50 ${inter.className} ${fontHeading.className} ${fontSubHeading.className} ${fontHeadingAlt.variable} `}
+      //from-black to-purple-950 text-slate-900
+        className={`antialiased overflow-x-hidden overflow-y-auto h-[100%]  w-screen  bg-white dark:bg-gradient-to-br from-black to-purple-950 text-slate-900 dark:text-slate-50 ${inter.className} ${fontHeading.className} ${fontSubHeading.className} ${fontHeadingAlt.variable} `}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
          

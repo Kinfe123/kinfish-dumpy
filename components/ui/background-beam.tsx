@@ -2,13 +2,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import BorderBtn from "./border-btn";
 
 export function BackgroundBeamsDemo() {
   return (
     <div className="h-screen bg-gradient-to-tr from-transparent to-tranparent relative flex flex-col items-center justify-center antialiased">
       <div className="max-w-2xl mx-auto p-4">
         <h1 className="relative font-heading z-10 text-lg md:text-7xl  bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600  text-center font-bold">
-          Join the waitlist
+          Join the Jema
         </h1>
         <p></p>
         <p className="text-neutral-500 max-w-lg mx-auto my-2 text-sm text-center relative z-10">
@@ -20,9 +21,13 @@ export function BackgroundBeamsDemo() {
         </p>
         <input
           type="text"
-          placeholder="hi@manuarora.in"
-          className="rounded-lg border border-neutral-800 focus:ring-2 focus:ring-teal-500  w-full relative z-10 mt-4  bg-neutral-950 placeholder:text-neutral-700 px-4 py-3"
+          placeholder="some@thing.com"
+          className="rounded-lg border border-neutral-800 focus:ring-2 focus:ring-teal-500  w-full relative z-10 mt-4  bg-gradient-to-tr from-purple-500/60 to-transparent   placeholder:text-neutral-700 px-4 py-3"
         />
+        <div className="flex justify-center items-center mt-3">
+            
+        <BorderBtn />
+        </div>
       </div>
       <BackgroundBeams />
     </div>

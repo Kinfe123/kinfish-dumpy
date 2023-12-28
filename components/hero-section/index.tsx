@@ -5,11 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Button } from "../ui/button";
-<<<<<<< Updated upstream
 import Feeder from "../ui/feeder";
-=======
 import Spotlight from "../ui/Spotlight";
->>>>>>> Stashed changes
 
 export default function HeroSection() {
   const ref = React.useRef(null);
@@ -44,15 +41,11 @@ export default function HeroSection() {
             variants={FADE_DOWN_ANIMATION_VARIANTS}
             className="text-4xl font-bold font-headingAlt tracking-tight sm:text-6xl"
           >
-<<<<<<< Updated upstream
             <Feeder />
             <div className="mb-4">
 
             </div>
-            Beautiful Framer Motion Animations
-=======
             Beautifully made thoughts compilation
->>>>>>> Stashed changes
           </motion.h1>
           <motion.p
             variants={FADE_DOWN_ANIMATION_VARIANTS}
