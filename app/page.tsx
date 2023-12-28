@@ -1,7 +1,8 @@
 import { allPosts } from "@/.contentlayer/generated";
 import HeroSection from "@/components/hero-section";
 import { BackgroundBeamsDemo } from "@/components/ui/background-beam";
-import { BoxesCore } from "@/components/ui/bg-box";
+
+import { EvervaultCard } from "@/components/ui/card-binary";
 import TwickledDemo from "@/components/ui/twickled-view";
 import Link from "next/link";
 
@@ -15,9 +16,12 @@ export default function Home() {
         <BackgroundBeamsDemo />
         </div>
         <div>
-          <BoxesCore />
+     
         </div>
+       
         <TwickledDemo />
+
+
       </div>
     </div>
   );
