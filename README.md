@@ -1,7 +1,3 @@
-# Next.js + Contentlayer
+# KINFiSH lacks dumping 
 
-A template with Next.js 13 app dir, Contentlayer, Tailwind CSS and dark mode.
-
-https://next-contentlayer.vercel.app
-
-
+That's why this existed but i am using turbo just in case :)
