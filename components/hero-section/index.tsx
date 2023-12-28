@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Button } from "../ui/button";
+import Feeder from "../ui/feeder";
 
 export default function HeroSection() {
   const ref = React.useRef(null);
@@ -31,10 +32,15 @@ export default function HeroSection() {
             },
           }}
         >
+
           <motion.h1
             variants={FADE_DOWN_ANIMATION_VARIANTS}
             className="text-4xl font-bold font-headingAlt tracking-tight sm:text-6xl"
           >
+            <Feeder />
+            <div className="mb-4">
+
+            </div>
             Beautiful Framer Motion Animations
           </motion.h1>
           <motion.p
