@@ -1,10 +1,10 @@
 import { allPosts } from "@/.contentlayer/generated";
 import HeroSection from "@/components/hero-section";
+import Lamper from "@/components/lamp";
 import { BackgroundBeamsDemo } from "@/components/ui/background-beam";
 
 import { EvervaultCard } from "@/components/ui/card-binary";
 import TwickledDemo from "@/components/ui/twickled-view";
-import Link from "next/link";
 
 export default function Home() {
   return (
@@ -12,16 +12,13 @@ export default function Home() {
       <div>
         <HeroSection />
         <div className="max-w-full mx-auto  flex flex-col justify-center items-center">
-
-        <BackgroundBeamsDemo />
+          <BackgroundBeamsDemo />
         </div>
         <div>
-     
+          <Lamper />
         </div>
-       
+
         <TwickledDemo />
-
-
       </div>
     </div>
   );
