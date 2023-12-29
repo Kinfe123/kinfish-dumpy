@@ -21,7 +21,7 @@ export default function HeroSection() {
       <div className="max-w-4xl">
         <Spotlight fill="#9284D4" />
       </div>
-      <div className="mx-auto max-w-2xl text-center ">
+      <div className="mx-auto max-w-3xl text-center ">
         <motion.div
           initial="hidden"
           ref={ref}
@@ -39,7 +39,7 @@ export default function HeroSection() {
 
           <motion.h1
             variants={FADE_DOWN_ANIMATION_VARIANTS}
-            className="text-4xl font-bold font-headingAlt tracking-tight sm:text-6xl"
+            className="text-4xl font-bold font-headingAlt bg-gradient-to-tr from-purple-300/80 to-white/90 bg-clip-text text-transparent tracking-tight sm:text-7xl"
           >
             <Feeder />  
             <div className="mb-4">
