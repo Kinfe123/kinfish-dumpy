@@ -3,8 +3,6 @@ import Link from "next/link";
 import { allPosts } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 
-import { formatDate } from "@/lib/utils";
-import { EvervaultCard } from "@/components/ui/card-binary";
 import { PostCard } from "@/components/ui/card-binary-view";
 import Spotlight from "@/components/ui/Spotlight";
 import BlogHeader from "@/components/ui/blog-header";
