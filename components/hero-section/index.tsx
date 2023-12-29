@@ -58,12 +58,12 @@ export default function HeroSection() {
             variants={FADE_DOWN_ANIMATION_VARIANTS}
             className="mt-10 flex items-center justify-center gap-x-6 "
           >
-            <Link href="/blogs" className="z-50">
+            <Link href="/posts" className="z-50">
               <Button>Get started</Button>
             </Link>
 
             <Link href="/posts" className="z-50">
-              <Button variant='outline' className="bg-transparent">
+              <Button variant='outline' className="bg-transparent hover:bg-transparent/5">
                 Learn more &nbsp;<span aria-hidden="true">→</span>
               </Button>
             </Link>
