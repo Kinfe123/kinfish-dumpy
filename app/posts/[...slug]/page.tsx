@@ -79,7 +79,7 @@ export default async function PostPage({ params }: PostProps) {
             {formatDate(post.date)}
           </time>
         )}
-        <h1 className="mt-2 inline-block text-center font-heading text-5xl dark:bg-gradient-to-tr dark:from-zinc-400/10 dark:via-white/90 dark:text-transparent dark:bg-clip-text dark:to-white/10  leading-tight lg:text-6xl">
+        <h1 className="mt-2 inline-block text-center font-headingAlt text-5xl dark:bg-gradient-to-tr dark:from-zinc-400/10 dark:via-white/90 dark:text-transparent dark:bg-clip-text dark:to-white/10  leading-tight lg:text-6xl">
           {post.title}
         </h1>
       </div>
