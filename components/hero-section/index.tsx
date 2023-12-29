@@ -41,7 +41,7 @@ export default function HeroSection() {
             variants={FADE_DOWN_ANIMATION_VARIANTS}
             className="text-4xl font-bold font-headingAlt tracking-tight sm:text-6xl"
           >
-            <Feeder />
+            <Feeder />  
             <div className="mb-4">
 
             </div>

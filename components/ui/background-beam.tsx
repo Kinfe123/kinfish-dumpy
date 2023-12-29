@@ -18,7 +18,7 @@ export function BackgroundBeamsDemo() {
         <input
           type="text"
           placeholder="some@thing.com"
-          className="rounded-lg border border-neutral-800 focus:ring-2 focus:ring-teal-500  w-full relative z-10 mt-4  bg-gradient-to-tr from-purple-500/60 to-transparent   placeholder:text-neutral-700 px-4 py-3"
+          className="rounded-lg border border-neutral-800 focus:ring-2 focus:ring-teal-500  w-full relative z-10 mt-4  bg-gradient-to-tr from-tranparent to-transparent   placeholder:text-neutral-700 px-4 py-3"
         />
         <div className="flex justify-center items-center mt-3">
             
