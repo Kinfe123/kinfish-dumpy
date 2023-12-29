@@ -63,7 +63,7 @@ export default function HeroSection() {
             </Link>
 
             <Link href="/posts" className="z-50">
-              <Button variant="outline " className="bg-transparent">
+              <Button variant='outline' className="bg-transparent">
                 Learn more &nbsp;<span aria-hidden="true">→</span>
               </Button>
             </Link>
