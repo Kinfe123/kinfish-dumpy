@@ -39,7 +39,7 @@ export async function generateMetadata({
     title: post.title,
     description: post.description,
     openGraph: {
-      title: `${title} - ArezArmada Blog`,
+      title: `${title} - KiNFiSH Blog`,
       description,
       type: "article",
       url: `https://kinfish-dumpy.vercel.app/posts/${slug}`,
