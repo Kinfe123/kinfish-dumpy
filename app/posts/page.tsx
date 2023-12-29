@@ -29,7 +29,7 @@ export default async function BlogPage() {
           <h1 className="inline-block fn font-headingAlt bg-gradient-to-tr from-white/50 bg-clip-text text-transparent to-white text-4xl tracking-tight lg:text-5xl">
             What <span className="mx-[3px]"></span>i <span className="mx-[3px]"></span> thought
           </h1>
-          <p className="text-xl font-sans text-muted-foreground">
+          <p className="text-xl  text-muted-foreground">
            Homemade thought and farms - all the magic 
           </p>
         </div>
