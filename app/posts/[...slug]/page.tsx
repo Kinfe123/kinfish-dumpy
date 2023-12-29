@@ -34,10 +34,27 @@ export async function generateMetadata({
   if (!post) {
     return {};
   }
-
+  const {title , image , description , slug} = post
   return {
     title: post.title,
     description: post.description,
+    openGraph: {
+      title: `${title} - ArezArmada Blog`,
+      description,
+      type: "article",
+      url: `https://kinfish-dumpy.vercel.app/posts/${slug}`,
+      images: [
+        {
+          url: image,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+    },
   };
 }
 
