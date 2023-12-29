@@ -51,7 +51,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <FloatingNav navItems={navItems} />
               {/* for static navbar  */}
               {/* <StaticNavBar navItems={navItems} /> */}
-              <ModeToggle />
+              {/* <ModeToggle /> */}
             </header>
             <main>{children}</main>
           </div>
