@@ -28,19 +28,25 @@ All in one!
    git clone https://github.com/Kinfe123/kinfish-dumpy.git
    ```
 
-2. Install dependencies using pnpm
+2. Change the dir
+
+   ```bash
+   cd kinfish-dumpy
+   ```
+
+3. Install dependencies using pnpm
 
    ```bash
    pnpm install
    ```
 
-3. Copy the `.env.example` to `.env` and update the variables.
+4. Copy the `.env.example` to `.env` and update the variables.
 
    ```bash
    cp .env.example .env
    ```
 
-4. Start the development server
+5. Start the development server
 
    ```bash
    pnpm run dev
