@@ -1,7 +1,8 @@
 import { allPosts } from "@/.contentlayer/generated";
 import { PostCard } from "./ui/card-binary-view";
 import { compareDesc } from "date-fns";
-import { Separator } from "./ui/separator";
+import { Separator } from "./ui/separator"
+import { TextGenerateEffect } from "./ui/text-gen";
 import ButtonStd from "./ui/button-std";
 import Link from "next/link";
 const Trendy = () => {
@@ -16,7 +17,7 @@ const Trendy = () => {
   return (
     <div className="flex flex-col gap-5 justify-center items-center container max-w-4xl py-6 lg:py-10">
       <h1 className="relative z-10 text-lg md:text-7xl font-headingAlt  bg-clip-text text-transparent bg-gradient-to-b from-purple-300/90 to-white/90  text-center font-bold">
-        Get the trendy one
+        <TextGenerateEffect words="Get the trendy's one" className=" text-lg md:text-6xl font-headingAlt  bg-clip-text text-transparent bg-gradient-to-b from-purple-300/90 to-white/90  text-center "/>
       </h1>
       <Separator />
 
