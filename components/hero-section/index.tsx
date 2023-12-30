@@ -7,6 +7,7 @@ import React from "react";
 import { Button } from "../ui/button";
 import Feeder from "../ui/feeder";
 import Spotlight from "../ui/Spotlight";
+import { Github } from "lucide-react";
 
 export default function HeroSection() {
   const ref = React.useRef(null);
@@ -36,15 +37,12 @@ export default function HeroSection() {
             },
           }}
         >
-
           <motion.h1
             variants={FADE_DOWN_ANIMATION_VARIANTS}
             className="text-4xl font-bold font-headingAlt bg-gradient-to-tr from-purple-300/80 to-white/90 bg-clip-text text-transparent tracking-tight sm:text-7xl"
           >
-            <Feeder />  
-            <div className="mb-4">
-
-            </div>
+            <Feeder />
+            <div className="mb-4"></div>
             Beautifully made thoughts compilation
           </motion.h1>
           <motion.p
@@ -62,9 +60,17 @@ export default function HeroSection() {
               <Button>Get started</Button>
             </Link>
 
-            <Link href="/posts" className="z-50">
-              <Button variant='outline' className="bg-transparent hover:bg-transparent/5">
-                Learn more &nbsp;<span aria-hidden="true">→</span>
+            <Link
+              href="https://github.com/Kinfe123/kinfish-dumpy"
+              target="_blank"
+              className="z-50"
+            >
+              <Button
+                variant="ghost"
+                className="outline-none bg-transparent hover:bg-transparent/5"
+              >
+                <Github className="mx-2 " /> Get the github &nbsp;
+                <span aria-hidden="true">→</span>
               </Button>
             </Link>
           </motion.div>
