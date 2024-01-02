@@ -3,17 +3,22 @@ import { allPosts, allAuthors } from "contentlayer/generated";
 
 import { Metadata } from "next";
 import { Mdx } from "@/components/mdx-components";
-import { ChevronLeft, ChevronLeftCircle } from "lucide-react";
+import { ChevronLeft, ChevronLeftCircle, View, EyeIcon } from "lucide-react";
 import Link from "next/link";
 import { cn, formatDate } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
+import Views from "@/components/views";
+import { Redis } from "@upstash/redis";
 
+const redis = Redis.fromEnv();
 interface PostProps {
   params: {
     slug: string[];
   };
 }
+
+export const revalidate = 60;
 
 async function getPostFromParams(params: PostProps["params"]) {
   const slug = params?.slug?.join("/");
@@ -34,7 +39,7 @@ export async function generateMetadata({
   if (!post) {
     return {};
   }
-  const {title , image , description , slug} = post
+  const { title, image, description, slug } = post;
   return {
     title: post.title,
     description: post.description,
@@ -58,11 +63,11 @@ export async function generateMetadata({
   };
 }
 
-export async function generateStaticParams(): Promise<PostProps["params"][]> {
-  return allPosts.map((post) => ({
-    slug: post.slugAsParams.split("/"),
-  }));
-}
+// export async function generateStaticParams(): Promise<PostProps["params"][]> {
+//   return allPosts.map((post) => ({
+//     slug: post.slugAsParams.split("/"),
+//   }));
+// }
 
 export default async function PostPage({ params }: PostProps) {
   const post = await getPostFromParams(params);
@@ -74,6 +79,9 @@ export default async function PostPage({ params }: PostProps) {
   if (!post) {
     notFound();
   }
+  const views =
+    (await redis.get<number>(["pageviews", "projects", post.slug].join(":"))) ??
+    0;
 
   return (
     <div className="container font-heading2 relative max-w-4xl py-6 gap-2">
@@ -87,6 +95,9 @@ export default async function PostPage({ params }: PostProps) {
         <ChevronLeft className="mr-2 h-4 w-4" />
         See all posts
       </Link>
+      <div>
+        <Views slug={post.slug} />
+      </div>
       <div className="flex flex-col justify-center items-center">
         {post.date && (
           <time
@@ -108,6 +119,12 @@ export default async function PostPage({ params }: PostProps) {
                 key={author._id}
                 className="flex flex-col gap-1 justify-center items-center"
               >
+                <div className="flex justify-center items-center gap-2">
+                  <EyeIcon className="w-4 h-4 text-muted-foreground" />
+                  <p className="font-subheading text-muted-foreground">
+                    {views}
+                  </p>
+                </div>
                 <Link
                   key={author._id}
                   href={`https://twitter.com/${author.twitter}`}
