@@ -5,3 +5,14 @@ export var visitor = pgTable("visitor", {
   name: text("name"),
   
 });
+export var guesser = pgTable("guesser", {
+  id: serial("id"),
+  name: text("name"),
+  phone: text('phone'),
+  guess: text('guess')
+
+  
+});
+
+
+
