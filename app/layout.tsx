@@ -11,6 +11,7 @@ import Spotlight from "@/components/ui/Spotlight";
 import { navItems } from "@/site/nav";
 import FloatingNav from "@/components/ui/floating-navbar";
 import StaticNavBar from "@/components/ui/static-nav";
+import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -55,6 +56,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </header>
             <main>{children}</main>
           </div>
+          <Toaster /> 
           <Analytics />
         </ThemeProvider>
       </body>

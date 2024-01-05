@@ -8,6 +8,8 @@ export async function POST(req: Request) {
         const req = await db.insert(guesser).values({name: name , phone:phone , guess:guess})
         console.log(req , ' the req')
 
+        return new Response('Succesfully guessed' , {status:200})
+
     }else {
         return new Response('Please provide a valid data' ,{status:404})
     }

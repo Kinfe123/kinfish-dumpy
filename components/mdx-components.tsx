@@ -6,6 +6,7 @@ import { MdxTabs , MdxTab } from "./mdx-tabs";
 import { cn } from "@/lib/utils";
 import { MdxCard } from "./mdx-card";
 import FormIntake from "./form-intake";
+import { toast  , useToast} from "@/components/ui/use-toast";
 export const components = {
  
   h1: ({ className, ...props }) => (
@@ -114,11 +115,13 @@ export const components = {
   ),
   // Steps,
   FormIntake,
+  toast,
+  useToast,
   Tab: MdxTab,
   Tabs: MdxTabs,
   Image: Image as any,
   Callout,
-  Card: MdxCard,
+Card: MdxCard,
 };
 
 interface MdxProps {
