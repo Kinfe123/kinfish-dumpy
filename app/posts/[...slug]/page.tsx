@@ -172,7 +172,7 @@ export default async function PostPage({ params }: PostProps) {
     </div> */}
         <div className="flex justify-center py-6 lg:py-10">
           <Link
-            href="/blog"
+            href="/posts"
             className={cn(buttonVariants({ variant: "ghost" }))}
           >
             <ChevronLeft className="mr-2 h-4 w-4" />
