@@ -5,7 +5,9 @@ import { Callout } from "./callout";
 import { MdxTabs , MdxTab } from "./mdx-tabs";
 import { cn } from "@/lib/utils";
 import { MdxCard } from "./mdx-card";
+import FormIntake from "./form-intake";
 export const components = {
+ 
   h1: ({ className, ...props }) => (
       <h1
           className={cn("mt-2 scroll-m-20 text-4xl font-bold tracking-wide", className)}
@@ -111,6 +113,7 @@ export const components = {
       />
   ),
   // Steps,
+  FormIntake,
   Tab: MdxTab,
   Tabs: MdxTabs,
   Image: Image as any,
