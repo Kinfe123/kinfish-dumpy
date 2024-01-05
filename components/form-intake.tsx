@@ -33,7 +33,7 @@ export default function FormContact() {
     if (!res.ok) {
       return toast({
         title: "Something went wrong.",
-        description: "We can't receive your application. Please try again.",
+        description: "I can't receive your guess. Please try again.",
         variant: "destructive",
       });
     } else {
@@ -47,13 +47,7 @@ export default function FormContact() {
 
     // we will be having two calls - 1 for email and 2 for form acceptance or we can merge them together to be deleived as one
   };
-  useEffect(() => {
-     toast({
-      title: "Something went wrong.",
-      description: "We can't receive your application. Please try again.",
-      variant: "destructive",
-    });
-  }, []);
+ 
 
   return (
     <div className="mx-auto flex items-center justify-center">
@@ -72,13 +66,13 @@ export default function FormContact() {
             onSubmit={handleClick}
           >
             <div className="space-y-2">
-              <Label htmlFor="name">Name</Label>
+              <Label htmlFor="name">Telegram username</Label>
               <Input
                 id="name"
                 className=" bg-gradient-to-tr from-purple-500/5 rounded-lg via-transparent-400/5 to-transparent border-[0.2px] border-zinc-900  dark:border-inherit "
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Your Name..."
+                placeholder="Your Telegram username..."
                 required
               />
             </div>
