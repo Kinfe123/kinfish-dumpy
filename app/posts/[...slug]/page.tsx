@@ -170,13 +170,14 @@ export default async function PostPage({ params }: PostProps) {
         {/* <div className="mt-10">
       <UserSubscription />
     </div> */}
-        <div className="flex justify-center py-6 lg:py-10">
+        <div className="mt-10 flex justify-end border-t border-none pt-5">
           <Link
-            href="/posts"
-            className={cn(buttonVariants({ variant: "ghost" }))}
+            href={`https://github.com/Kinfe123/kinfish-dumpy/blob/main/content/posts/${params.slug}.mdx`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-gray-500 transition-colors hover:opacity-[80%]"
           >
-            <ChevronLeft className="mr-2 h-4 w-4" />
-            See all posts
+            <p>Found a typo? Edit this page →</p>
           </Link>
         </div>
       </article>
