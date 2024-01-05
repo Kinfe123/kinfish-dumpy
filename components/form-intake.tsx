@@ -77,7 +77,7 @@ export default function FormContact() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">Phone</Label>
               <Input
                 id="email"
                 className=" bg-gradient-to-tr from-purple-500/5 via-purple-400/5 to-transparent border-[0.2px] border-zinc-900  dark:border-inherit"
