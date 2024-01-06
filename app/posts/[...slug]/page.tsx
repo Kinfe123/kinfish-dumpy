@@ -156,7 +156,7 @@ export default async function PostPage({ params }: PostProps) {
           <div className="bg-gradient-to-tr from-purple-500/20 via-purple-400/5 to-purple-400/10 rounded-2xl outline-none border-none">
             <Image
               src={post.image}
-              alt={post.title}
+            alt={post.title}
               width={1000}
               height={405}
               className="my-10 rounded-2xl bg-transparent transition-colors border-2 p-[2px] outline-none "
