@@ -10,12 +10,20 @@ import { buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
 import Views from "@/components/views";
 import { Redis } from "@upstash/redis";
+import { AnimatedTooltip } from "@/components/animated-tooltip";
 
 const redis = Redis.fromEnv();
 interface PostProps {
   params: {
     slug: string[];
   };
+}
+
+interface AuthorProps {
+  id: string;
+  name: string;
+  designation: string;
+  image: string;
 }
 
 export const revalidate = 60;
@@ -83,6 +91,24 @@ export default async function PostPage({ params }: PostProps) {
     (await redis.get<number>(["pageviews", "projects", post.slug].join(":"))) ??
     0;
 
+  const parseData = () => {
+    let res: AuthorProps[] = [];
+
+    if (authors) {
+      authors.map((a) => {
+        let user = {
+          id: a!._id ?? "",
+          name: a!.name ?? "",
+          designation: a!.description ?? "",
+          image: a!.avatar ?? "",
+        };
+        res.push(user);
+      });
+    }
+    return res;
+  };
+  const au = parseData();
+
   return (
     <div className="container font-heading2 relative max-w-4xl py-6 gap-2">
       <Link
@@ -128,24 +154,25 @@ export default async function PostPage({ params }: PostProps) {
                 <Link
                   key={author._id}
                   href={`https://twitter.com/${author.twitter}`}
-                  className="flex items-center space-x-2 text-sm"
+                  className="flex items-center space-x-5 text-sm"
                 >
-                  <Image
+                  {/* <Image
                     src={author.avatar!}
                     alt={author.name!}
                     width={42}
                     height={42}
                     className="rounded-full bg-white"
-                  />
+                  /> */}
+                  <AnimatedTooltip items={au} />
                   <br />
-                  <div className="flex-1 text-left leading-tight">
+                
+                  <div className=" flex-1 text-left leading-tight">
                     <p className="font-medium">{author.name}</p>
                     <p className="text-[12px] text-muted-foreground">
                       @{author.twitter}
                     </p>
                   </div>
                 </Link>
-                <p className="text-muted-foreground">{author.description}</p>
               </div>
             ) : null
           )}
@@ -156,7 +183,7 @@ export default async function PostPage({ params }: PostProps) {
           <div className="bg-gradient-to-tr from-purple-500/20 via-purple-400/5 to-purple-400/10 rounded-2xl outline-none border-none">
             <Image
               src={post.image}
-            alt={post.title}
+              alt={post.title}
               width={1000}
               height={405}
               className="my-10 rounded-2xl bg-transparent transition-colors border-2 p-[2px] outline-none "
