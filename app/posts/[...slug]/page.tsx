@@ -107,7 +107,7 @@ export default async function PostPage({ params }: PostProps) {
     }
     return res;
   };
-  const au = parseData();
+  const authorFormat = parseData();
 
   return (
     <div className="container font-heading2 relative max-w-4xl py-6 gap-2">
@@ -163,7 +163,7 @@ export default async function PostPage({ params }: PostProps) {
                     height={42}
                     className="rounded-full bg-white"
                   /> */}
-                  <AnimatedTooltip items={au} />
+                  <AnimatedTooltip items={authorFormat} />
                   <br />
                 
                   <div className=" flex-1 text-left leading-tight">
