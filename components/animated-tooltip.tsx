@@ -43,6 +43,7 @@ export const AnimatedTooltip = ({
         <div
           className="-mr-4  relative group"
           key={item.name}
+        //   @ts-ignore
           onMouseEnter={() => setHoveredIndex(item.id)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
