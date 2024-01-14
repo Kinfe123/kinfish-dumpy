@@ -71,19 +71,12 @@ export async function generateMetadata({
   };
 }
 
-// export async function generateStaticParams(): Promise<PostProps["params"][]> {
-//   return allPosts.map((post) => ({
-//     slug: post.slugAsParams.split("/"),
-//   }));
-// }
-
 export default async function PostPage({ params }: PostProps) {
   const post = await getPostFromParams(params);
   const authors = post!.authors.map((author) =>
     allAuthors.find(({ slug }) => slug === `/authors/${author}`)
   );
 
-  // console.log("The authors: " , authors)
   if (!post) {
     notFound();
   }
