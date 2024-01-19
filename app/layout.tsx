@@ -5,12 +5,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@/components/analytics";
 import { ModeToggle } from "@/components/mode-toggle";
 import localFont from "next/font/local";
-// import '../public/assets/fonts/'
-import { cn } from "@/lib/utils";
-import Spotlight from "@/components/ui/Spotlight";
 import { navItems } from "@/site/nav";
 import FloatingNav from "@/components/ui/floating-navbar";
-import StaticNavBar from "@/components/ui/static-nav";
 import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ["latin"] });
 
