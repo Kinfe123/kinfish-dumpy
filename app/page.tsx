@@ -1,10 +1,8 @@
-import { allPosts } from "@/.contentlayer/generated";
+
 import HeroSection from "@/components/hero-section";
 import Lamper from "@/components/lamp";
 import Trendy from "@/components/trendy";
 import { BackgroundBeamsDemo } from "@/components/ui/background-beam";
-
-import { EvervaultCard } from "@/components/ui/card-binary";
 import TwickledDemo from "@/components/ui/twickled-view";
 
 export default function Home() {
