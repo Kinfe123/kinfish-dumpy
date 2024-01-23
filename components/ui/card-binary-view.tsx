@@ -3,6 +3,7 @@ import { EvervaultCard, Icon } from "../ui/card-binary";
 import { Separator } from "./separator";
 import Link from "next/link";
 import ButtonStd from "./button-std";
+import HackyButton from "../hacky-button";
 
 type PostCardProps = {
   title: string;
@@ -26,7 +27,7 @@ export function PostCard(props: PostCardProps) {
       {/* <p className="text-sm border font-light dark:border-white/[0.2] border-black/[0.2] rounded-full mt-4 text-black dark:text-white px-2 py-0.5">
         Watch me hover
       </p> */}
-
+     
       <ButtonStd route={props.slug} text="Read More" />
     </div>
   );

@@ -1,32 +1,36 @@
-"use client";
+'use client'
 
 import { useRef, useState } from "react";
 // import { FiLock } from "react-icons/fi";
-import { Lock } from "lucide-react";
+import {Lock} from 'lucide-react'
 import { motion } from "framer-motion";
 
-const Example = () => {
+const HackyButton = ({text}: {text:string}) => {
   return (
-    <div className="grid min-h-[200px] place-content-center bg-slate-900 p-4">
-      <EncryptButton />
+    <div className="grid min-h-fit place-content-center bgtranspaent p-4">
+      <EncryptButton word={text} />
     </div>
   );
 };
 
-const TARGET_TEXT = "Encrypt data";
 const CYCLES_PER_LETTER = 2;
 const SHUFFLE_TIME = 50;
 
 const CHARS = "!@#$%^&*():{};|,.<>/?";
 
-const EncryptButton = () => {
+
+type wordProps = {
+    word: string
+}
+export const EncryptButton = (props: wordProps) => {
+    const TARGET_TEXT = props.word;
   const intervalRef = useRef(null);
 
   const [text, setText] = useState(TARGET_TEXT);
 
   const scramble = () => {
-    let pos = 0;
-    // @ts-ignore
+    let pos = 0; 
+// @ts-ignore
     intervalRef.current = setInterval(() => {
       const scrambled = TARGET_TEXT.split("")
         .map((char, index) => {
@@ -66,7 +70,7 @@ const EncryptButton = () => {
       }}
       onMouseEnter={scramble}
       onMouseLeave={stopScramble}
-      className="group relative overflow-hidden rounded-lg border-[1px] border-slate-500 bg-slate-700 px-4 py-2 font-mono font-medium uppercase text-slate-300 transition-colors hover:text-indigo-300"
+      className="group relative overflow-hidden rounded-3xl bg-transparent mt-2 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6  text-white inline-block  border-[1px] border-slate-500 px-4 py-2 font-mono font-medium uppercase text-slate-300 transition-colors hover:text-indigo-300"
     >
       <div className="relative z-10 flex items-center gap-2">
         <Lock />
@@ -91,4 +95,4 @@ const EncryptButton = () => {
   );
 };
 
-export default Example;
+export default HackyButton;
