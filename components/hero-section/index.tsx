@@ -49,7 +49,7 @@ export default function HeroSection() {
             variants={FADE_DOWN_ANIMATION_VARIANTS}
             className="mt-6 text-lg leading-8"
           >
-            A collection of handmadeand crafted thought from KiNFiSH
+            A collection of handmade and crafted thought from KiNFiSH
           </motion.p>
 
           <motion.div
