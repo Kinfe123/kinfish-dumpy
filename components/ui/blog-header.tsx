@@ -11,7 +11,7 @@ const BlogHeader = () => {
     show: { opacity: 1, y: 0, transition: { type: "spring" } },
   };
   return (
-    <div className="mx-auto max-w-2xl text-center ">
+    <div className="mx-auto max-w-2xl text-center">
       <motion.div
         initial="hidden"
         ref={ref}
@@ -28,7 +28,7 @@ const BlogHeader = () => {
       >
         <motion.h1
           variants={FADE_DOWN_ANIMATION_VARIANTS}
-          className="text-4xl font-bold font-headingAlt bg-gradient-to-tr from-white/50 bg-clip-text text-transparent to-white tracking-tight lg:text-7xl sm:text-6xl"
+          className="text-4xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-tr to-white sm:text-6xl lg:text-7xl font-headingAlt from-white/50"
         >
           <div className="mb-4"></div>
           What <span className="mx-[3px]"></span>i{" "}
@@ -38,7 +38,7 @@ const BlogHeader = () => {
           variants={FADE_DOWN_ANIMATION_VARIANTS}
           className="mt-6 text-lg leading-8"
         >
-          A collection of handmadeand crafted thought from KiNFiSH
+          A collection of hand made deand crafted thought from KiNFiSH
         </motion.p>
       </motion.div>
     </div>
