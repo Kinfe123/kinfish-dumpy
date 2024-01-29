@@ -1,3 +1,5 @@
+import DxHeader from "@/components/dx-header";
+import Particles from "@/components/particles";
 import { extractFromLink } from "md-to-jsonify";
 
 export const metadata = {
@@ -10,7 +12,11 @@ const DxPage = async () => {
   //   const res = await extractFromLink(url);
   //   console.log(res);
   return (
-    <div className="min-h-screen w-screen overflow-hidden bg-gradient-to-tr from-black to-black/90"></div>
+    <div className="min-h-screen  mx-auto max-w-4xl mt-12 px-6 lg:px-8 bg-transparent overflow-hidden bg-gradient-to-tr from-transparent to-transparent">
+       <Particles quantity={200}/>
+
+       <DxHeader />
+    </div>
   );
 };
 
