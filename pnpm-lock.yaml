@@ -77,6 +77,9 @@ dependencies:
   lucide-react:
     specifier: ^0.302.0
     version: 0.302.0(react@18.2.0)
+  md-to-jsonify:
+    specifier: ^1.0.0
+    version: 1.0.0
   mini-svg-data-uri:
     specifier: ^1.4.4
     version: 1.4.4
@@ -7285,6 +7288,10 @@ packages:
 
   /markdown-table@3.0.3:
     resolution: {integrity: sha512-Z1NL3Tb1M9wH4XESsCDEksWoKTdlUafKc4pt0GRwjUyXaCFZ+dc3g2erqB6zm3szA2IUSi7VnPI+o/9jnxh9hw==}
+    dev: false
+
+  /md-to-jsonify@1.0.0:
+    resolution: {integrity: sha512-Zun+gk/Hwo6qee3LW2DrGQD4xXfeTpkDTux+eukocuiFRWGzBQ6JTumZqBbozJ/ssCN/yLU4ZP8zXnQToEadag==}
     dev: false
 
   /md5-file@3.2.3:
