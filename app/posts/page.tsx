@@ -6,7 +6,9 @@ import { compareDesc } from "date-fns";
 import { PostCard } from "@/components/ui/card-binary-view";
 import Spotlight from "@/components/ui/Spotlight";
 import BlogHeader from "@/components/ui/blog-header";
+import { Redis } from "@upstash/redis";
 
+const redis = Redis.fromEnv();
 
 export const metadata = {
   title: "Blog",
@@ -19,9 +21,18 @@ export default async function BlogPage() {
       return compareDesc(new Date(a.date), new Date(b.date));
     });
 
-  return (
-    <div className="container max-w-4xl py-6 lg:py-10">
+  const allSlug = posts.map((p) =>  `pageviews:projects:${p.slug}`)
 
+
+
+  const allViews = await redis.mget<(number | null)[]>(...allSlug);
+
+
+  
+  console.log('ALl the view is: ' , allViews)
+
+  return (
+    <div className="container max-w-4xl py-6 lg:py-14">
       <div>
         <Spotlight fill="#9284D4" className="-rotate-1" />
       </div>
