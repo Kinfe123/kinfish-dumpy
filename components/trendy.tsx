@@ -1,7 +1,7 @@
 import { allPosts } from "@/.contentlayer/generated";
 import { PostCard } from "./ui/card-binary-view";
 import { compareDesc } from "date-fns";
-import { Separator } from "./ui/separator"
+import { Separator } from "./ui/separator";
 import { TextGenerateEffect } from "./ui/text-gen";
 import ButtonStd from "./ui/button-std";
 import Link from "next/link";
@@ -18,11 +18,14 @@ const Trendy = () => {
   return (
     <div className="flex flex-col gap-5 justify-center items-center container max-w-4xl py-6 lg:py-10">
       <h1 className="relative z-10 text-lg md:text-7xl font-headingAlt  bg-clip-text text-transparent bg-gradient-to-b from-purple-300/90 to-white/90  text-center font-bold">
-        <TextGenerateEffect words="Get the trendy's one" className=" text-lg md:text-6xl font-headingAlt  bg-clip-text text-transparent bg-gradient-to-b from-purple-300/90 to-white/90  text-center "/>
+        <TextGenerateEffect
+          words="Get the trendy's one"
+          className=" text-lg md:text-6xl font-headingAlt  bg-clip-text text-transparent bg-gradient-to-b from-purple-300/90 to-white/90  text-center "
+        />
       </h1>
       <Separator />
 
-      <div className="flex flex-col items-center gap-4 md:flex-row md:justify-between md:gap-8">
+      <div className="relative flex flex-col items-center gap-4 md:flex-row md:justify-between md:gap-8">
         <hr className="my-8" />
         {firstTwo?.length ? (
           <div className="grid gap-10 sm:grid-cols-2">
@@ -63,6 +66,12 @@ const Trendy = () => {
               //   </Link>
               // </article>
             ))}
+            <div className="absolute -top-4 -z-10 flex w-full justify-center">
+              <div className="h-[310px] w-[310px] max-w-full animate-pulse-slow rounded-full bg-[#8678F9] opacity-20 blur-[100px]" />
+            </div>
+            <div className="absolute -top-4 -z-10 flex w-full justify-center">
+              <div className="h-[310px] w-[310px] max-w-full animate-pulse-slow rounded-full bg-[#8678F9] opacity-20 blur-[100px]" />
+            </div>
           </div>
         ) : (
           <p>No posts published.</p>
@@ -70,7 +79,7 @@ const Trendy = () => {
       </div>
       <div>
         <Link href={"/posts"}>
-        <HackyButton key={12} text='Explore More'/>
+          <HackyButton key={12} text="Explore More" />
           {/* <button className="bg-transparent mt-2 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6  text-white inline-block">
             <span className="absolute inset-0 overflow-hidden rounded-full">
               <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
