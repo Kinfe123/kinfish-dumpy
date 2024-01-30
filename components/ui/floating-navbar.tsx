@@ -8,7 +8,8 @@ import {
 } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
- const FloatingNav = ({
+import { Icon } from "./card-binary";
+const FloatingNav = ({
   navItems,
   className,
 }: {
@@ -27,17 +28,20 @@ import Link from "next/link";
     let direction = current - scrollYProgress.getPrevious();
 
     if (scrollYProgress.get() < 0.05) {
-      setVisible(false);
+      setVisible(true);
     } else {
       if (direction < 0) {
         setVisible(true);
       } else {
-        setVisible(false);
+        setVisible(true);
       }
     }
   });
   return (
     <AnimatePresence mode="wait">
+      <div className="fixed justify-center items-center  max-w-fit  top-10 inset-x-0 mx-auto ">
+
+      
       <motion.div
         initial={{
           opacity: 1,
@@ -50,19 +54,25 @@ import Link from "next/link";
         transition={{
           duration: 0.2,
         }}
-        className={cn(
-          "flex max-w-fit  fixed top-10 inset-x-0 mx-auto border border-transparent dark:border-white/[0.2] rounded-full dark:bg-gradient-to-tr dark:from-purple-900 dark:to-black  bg-white shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] pr-2 pl-8 py-2  items-center justify-center space-x-4",
-          className,
-        )}
+        className="border border-black/[0.2] bg-gradient-to-tr from-purple-400/10 to-transparent dark:border-white/[0.2] flex flex-col items-start max-w-sm mx-auto p-4 relative h-full w-full "
+
+
       >
+        <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
+        <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
+        <Icon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
+        <Icon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
+        
+        <div className="flex pr-2 pl-8 py-2  items-center justify-center space-x-4 border border-transparent">
+
         {navItems.map((navItem: any, idx: number) => (
           <Link
-            key={`link=${idx}`}
-            href={navItem.link}
-            className={cn(
-              "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500",
+          key={`link=${idx}`}
+          href={navItem.link}
+          className={cn(
+            "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
             )}
-          >
+            >
             {/* <span className="block sm:hidden">{navItem.icon}</span> */}
             <span className="hidden text-sm sm:block">{navItem.name}</span>
           </Link>
@@ -71,9 +81,14 @@ import Link from "next/link";
           <span>Login</span>
           <span className="absolute inset-x-0 -bottom-px mx-auto w-1/2 h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
         </button>
+        </div>
+    
+
       </motion.div>
+      {/* </motion.div> */}
+        </div>
     </AnimatePresence>
   );
 };
 
-export default FloatingNav
+export default FloatingNav;
