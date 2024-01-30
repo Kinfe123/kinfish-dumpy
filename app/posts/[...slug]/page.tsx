@@ -171,7 +171,7 @@ export default async function PostPage({ params }: PostProps) {
           )}
         </div>
       ) : null}
-      <article className=" font-heading2  prose dark:prose-invert text-[16px] relative max-w-4xl py-24 md:py-7 lg:py-16">
+      <article className=" font-heading2  prose dark:prose-invert text-[16.9px] relative max-w-4xl py-24 md:py-7 lg:py-16">
         {post.image && (
           <div className="bg-gradient-to-tr from-transparent/95 to-transparent rounded-2xl outline-none border-none">
             <Image
