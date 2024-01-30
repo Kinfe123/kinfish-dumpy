@@ -103,7 +103,7 @@ export default async function PostPage({ params }: PostProps) {
   const authorFormat = parseData();
 
   return (
-    <div className="container font-heading2 relative max-w-4xl py-6 gap-2">
+    <div className="container font-subheading relative max-w-4xl py-6 gap-2">
       <Link
         href="/posts"
         className={cn(
@@ -171,7 +171,7 @@ export default async function PostPage({ params }: PostProps) {
           )}
         </div>
       ) : null}
-      <article className=" font-heading2  prose dark:prose-invert   relative max-w-4xl py-24 md:py-7 lg:py-16">
+      <article className=" font-heading2  prose dark:prose-invert text-[16px] relative max-w-4xl py-24 md:py-7 lg:py-16">
         {post.image && (
           <div className="bg-gradient-to-tr from-transparent/95 to-transparent rounded-2xl outline-none border-none">
             <Image

@@ -7,7 +7,7 @@ import TwickledDemo from "@/components/ui/twickled-view";
 
 export default function Home() {
   return (
-    <div className="w-full flex flex-col justify-center items-center gap-6 ">
+    <div className="w-full flex flex-col justify-center items-center gap-6 font-subalt ">
       <div>
         <HeroSection />
         <div>

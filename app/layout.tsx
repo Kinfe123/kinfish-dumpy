@@ -26,6 +26,10 @@ const fontSubHeading = localFont({
   src: "../public/assets/fonts/product-font.ttf",
   variable: "--font-subheading",
 });
+const fontSubAlt = localFont({
+  src: "../public/assets/fonts/jakarta.ttf",
+  variable: "--font-subalt",
+});
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -39,12 +43,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <body
           //from-black to-purple-950 text-slate-900
           // prev bg - from-black to-purple-950
-          className={`antialiased overflow-x-hidden overflow-y-auto h-[100%]  relative h-full w-full bg-slate-950     text-slate-900 dark:text-slate-50 ${inter.className} ${fontHeading.variable} ${fontSubHeading.variable} ${fontHeadingAlt.variable} `}
+          className={`antialiased  overflow-x-hidden overflow-y-auto h-[100%]  relative h-full w-full bg-slate-950     text-slate-900 dark:text-slate-50 ${inter.className} ${fontHeading.variable} ${fontSubHeading.variable} ${fontHeadingAlt.variable} ${fontSubAlt.variable}  `}
         >
           <div className="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
           <div className="absolute bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-            <div className="w-full mx-auto py-10 px-4 ">
+            <div className="w-full mx-auto py-10 px-4 font-subalt ">
               <header>
                 <FloatingNav navItems={navItems} />
                 {/* for static navbar  */}

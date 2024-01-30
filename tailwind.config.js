@@ -66,6 +66,7 @@ module.exports = {
         heading: ["var(--font-heading)"],
         headingAlt: ["var(--font-headingAlt)"],
         subheading: ["var(--font-subheading)"],
+        subalt: ["var(--font-subalt)"],
       },
 
       borderRadius: {
