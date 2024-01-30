@@ -16,6 +16,7 @@ export const getSlugs = () => {
 
 export const getViewCount = async () => {
   const allSlugs = getSlugs().map((p) => `pageviews:projects:${p.slug}`);
-  const allViews = await redis.mget<(number | null)[]>(...allSlugs)!;
-  return sumNums(allViews);
+  const allViews = await redis.mget<(number | null)[]>(...allSlugs);
+  // @ts-ignore
+  return sumNums(allViews)
 };
