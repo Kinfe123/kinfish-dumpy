@@ -14,7 +14,7 @@ export default function Lamper() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="mt-6 font-heading  bg-gradient-to-br from-slate-300 to-slate-500/20 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-8xl"
+        className="mt-6 font-heading  bg-gradient-to-br from-slate-300 to-slate-500/20 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-9xl"
       >
        Thoughts speaks  <br />on blogs
       </motion.h1>
