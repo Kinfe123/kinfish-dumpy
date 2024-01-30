@@ -8,6 +8,7 @@ import Spotlight from "@/components/ui/Spotlight";
 import BlogHeader from "@/components/ui/blog-header";
 import { Redis } from "@upstash/redis";
 import { sumNums } from "@/lib/utils";
+import { getViewCount } from "../../lib/mdx-helper";
 
 const redis = Redis.fromEnv();
 
@@ -22,15 +23,8 @@ export default async function BlogPage() {
       return compareDesc(new Date(a.date), new Date(b.date));
     });
 
-  const allSlug = posts.map((p) =>  `pageviews:projects:${p.slug}`)
+  const summed = await getViewCount()
 
-
-
-  const allViews = await redis.mget<(number | null)[]>(...allSlug);
-
-
-  
-  const summed = sumNums(allViews)
 
   
 
@@ -48,7 +42,7 @@ export default async function BlogPage() {
            Homemade thought and farms - all the magic 
           </p>
         </div> */}
-        <BlogHeader />
+        <BlogHeader totalViews={summed}/>
       </div>
 
       <hr className="my-8" />

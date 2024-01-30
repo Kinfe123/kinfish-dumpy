@@ -2,14 +2,16 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Feeder from "./feeder";
 
-const BlogHeader = () => {
+const BlogHeader = ({ totalViews }: { totalViews: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref);
   const FADE_DOWN_ANIMATION_VARIANTS = {
     hidden: { opacity: 0, y: -10 },
     show: { opacity: 1, y: 0, transition: { type: "spring" } },
   };
+
   return (
     <div className="mx-auto max-w-2xl text-center">
       <motion.div
@@ -26,6 +28,7 @@ const BlogHeader = () => {
           },
         }}
       >
+        <Feeder feed={`🎉  We have passed ${totalViews} views`} />
         <motion.h1
           variants={FADE_DOWN_ANIMATION_VARIANTS}
           className="text-4xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-tr to-white sm:text-6xl lg:text-7xl font-headingAlt from-white/50"
@@ -40,6 +43,11 @@ const BlogHeader = () => {
         >
           A collection of hand made deand crafted thought from KiNFiSH
         </motion.p>
+
+        <motion.p
+          variants={FADE_DOWN_ANIMATION_VARIANTS}
+          className="mt-6 text-lg leading-8"
+        ></motion.p>
       </motion.div>
     </div>
   );

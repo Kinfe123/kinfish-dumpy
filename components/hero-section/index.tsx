@@ -47,7 +47,7 @@ export default function HeroSection() {
             variants={FADE_DOWN_ANIMATION_VARIANTS} 
             className="text-4xl font-bold font-headingAlt bg-gradient-to-tr from-purple-300/80 to-white/90 bg-clip-text text-transparent tracking-tight sm:text-7xl  md:text-8xl"
           >
-            <Feeder />
+            <Feeder feed="Latest Blogs" />
             <div className="mb-4"></div>
             Beautifully made thoughts
           </motion.h1>
