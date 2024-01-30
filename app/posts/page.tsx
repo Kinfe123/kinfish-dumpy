@@ -7,6 +7,7 @@ import { PostCard } from "@/components/ui/card-binary-view";
 import Spotlight from "@/components/ui/Spotlight";
 import BlogHeader from "@/components/ui/blog-header";
 import { Redis } from "@upstash/redis";
+import { sumNums } from "@/lib/utils";
 
 const redis = Redis.fromEnv();
 
@@ -29,7 +30,9 @@ export default async function BlogPage() {
 
 
   
-  console.log('ALl the view is: ' , allViews)
+  const summed = sumNums(allViews)
+
+  
 
   return (
     <div className="container max-w-4xl py-6 lg:py-14">
