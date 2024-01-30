@@ -18,8 +18,8 @@ export default function HeroSection() {
     show: { opacity: 1, y: 0, transition: { type: "spring" } },
   };
   return (
-    <div className="mx-auto max-w-4xl mt-12 px-6 lg:px-8 bg-transparent">
-      <div className="max-w-4xl">
+    <div className="mx-auto max-w-5xl mt-12 px-6 lg:px-8 bg-transparent relative">
+      <div className="max-w-4xl absolute">
         <Spotlight fill="#9284D4" />
       </div>
       <div className="mx-auto max-w-3xl text-center ">
@@ -37,13 +37,19 @@ export default function HeroSection() {
             },
           }}
         >
+          <div className="absolute -top-4 -z-10 flex w-full justify-center">
+            <div className="h-[310px] w-[310px] max-w-full animate-pulse-slow rounded-full bg-[#8678F9] opacity-20 blur-[100px]" />
+          </div>
+             <div className="absolute -top-4 -z-10 flex w-full justify-center">
+            <div className="h-[310px] w-[310px] max-w-full animate-pulse-slow rounded-full bg-[#8678F9] opacity-20 blur-[100px]" />
+          </div>
           <motion.h1
-            variants={FADE_DOWN_ANIMATION_VARIANTS}
-            className="text-4xl font-bold font-headingAlt bg-gradient-to-tr from-purple-300/80 to-white/90 bg-clip-text text-transparent tracking-tight sm:text-7xl"
+            variants={FADE_DOWN_ANIMATION_VARIANTS} 
+            className="text-4xl font-bold font-headingAlt bg-gradient-to-tr from-purple-300/80 to-white/90 bg-clip-text text-transparent tracking-tight sm:text-7xl  md:text-8xl"
           >
             <Feeder />
             <div className="mb-4"></div>
-            Beautifully made thoughts compilation
+            Beautifully made thoughts
           </motion.h1>
           <motion.p
             variants={FADE_DOWN_ANIMATION_VARIANTS}

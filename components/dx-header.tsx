@@ -44,6 +44,7 @@ const DxHeader = () => {
             </span>
           </motion.h1>
           <Particles quantity={200} />
+        
         </motion.div>
       </div>
     </div>
