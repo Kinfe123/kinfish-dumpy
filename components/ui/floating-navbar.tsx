@@ -39,7 +39,7 @@ const FloatingNav = ({
   });
   return (
     <AnimatePresence mode="wait">
-      <div className="fixed justify-center items-center  max-w-fit  top-10 inset-x-0 mx-auto ">
+      <div className="fixed justify-center z-10 items-center  max-w-fit  top-5 inset-x-0 mx-auto ">
 
       
       <motion.div
@@ -54,7 +54,7 @@ const FloatingNav = ({
         transition={{
           duration: 0.2,
         }}
-        className="border border-black/[0.2] bg-gradient-to-tr from-purple-400/10 to-transparent dark:border-white/[0.2] flex flex-col items-start max-w-sm mx-auto p-4 relative h-full w-full "
+        className="border border-black/[0.2] bg-gradient-to-tr from-purple-400/20 to-transparent dark:border-white/[0.2] flex flex-col items-center justify-center  max-w-sm mx-auto p-4 relative h-[55px] backdrop-blur-2xl  w-full "
 
 
       >
