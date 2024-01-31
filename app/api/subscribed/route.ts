@@ -9,7 +9,7 @@ export async function POST(req: Request) {
       const req = await db.insert(subscribers).values({ email: email });
       try {
         const req2 = await transporter.sendMail({
-          from: process.env.USER_EMAIL,
+          from:`KinfeMichael Tariku <${process.env.USER_EMAIL}>`,
           to: email,
           subject: "You have subscribed to our news letter",
           text: "Hello there, Thanks for subscribing , I will keep in touch with you for an updates!... Stay Safe",
