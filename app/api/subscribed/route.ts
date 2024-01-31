@@ -12,7 +12,7 @@ export async function POST(req: Request) {
           from:`KinfeMichael Tariku <${process.env.USER_EMAIL}>`,
           to: email,
           subject: "Thanks for showing your interest for join the gang",
-          text: "Hello there, Thanks for joining the farmer gang , I will keep in touch with you for an updates!... Stay Safe",
+          text: "Hello there , KinfeMichael here -  Thanks for joining the farmer gang , I will keep in touch with you for an updates!... Stay Safe",
         });
         return new Response("Everything went fine", { status: 200 });
       } catch (err) {
