@@ -10,12 +10,9 @@ export var guesser = pgTable("guesser", {
   phone: text("phone"),
   guess: text("guess"),
 });
-
 export var subscribers = pgTable("subscribers", {
   id: serial("id"),
   name: text("name"),
   email: text("email"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
-
-
 });
