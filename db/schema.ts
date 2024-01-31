@@ -15,4 +15,12 @@ export var guesser = pgTable("guesser", {
 });
 
 
+export var subscribers = pgTable("subscribers", {
+  id: serial("id"),
+  name: text("name"),
+  email: text('email')
+
+});
+
+
 
