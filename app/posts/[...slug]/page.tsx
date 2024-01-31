@@ -103,7 +103,7 @@ export default async function PostPage({ params }: PostProps) {
   const authorFormat = parseData();
 
   return (
-    <div className="container font-subheading relative max-w-4xl py-6 gap-2">
+    <div className="container font-subheading relative max-w-4xl py-14 gap-2">
       <Link
         href="/posts"
         className={cn(
