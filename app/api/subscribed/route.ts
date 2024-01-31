@@ -11,8 +11,8 @@ export async function POST(req: Request) {
         const req2 = await transporter.sendMail({
           from:`KinfeMichael Tariku <${process.env.USER_EMAIL}>`,
           to: email,
-          subject: "You have subscribed to our news letter",
-          text: "Hello there, Thanks for subscribing , I will keep in touch with you for an updates!... Stay Safe",
+          subject: "Thanks for showing your interest for join the gang",
+          text: "Hello there, Thanks for joining the farmer gang , I will keep in touch with you for an updates!... Stay Safe",
         });
         return new Response("Everything went fine", { status: 200 });
       } catch (err) {
