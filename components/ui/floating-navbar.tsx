@@ -69,7 +69,7 @@ const FloatingNav = ({
                 )}
               >
                 {/* <span className="block sm:hidden">{navItem.icon}</span> */}
-                <span className="hidden text-sm sm:block">{navItem.name}</span>  <span className="w-[4px] h-[10px] bg-white/90 "></span>
+                <span className="hidden text-sm sm:block mr-5">{navItem.name}</span>  <Icon className=" h-6 w-6 bg-transparent transform rotate-180 mx-20 " />
               </Link>
             ))}
             <button className="relative py-2 px-4 text-sm font-medium text-black rounded-full border dark:text-white border-neutral-200 dark:border-white/[0.2]">
