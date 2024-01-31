@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { toast } from "@/components/ui/use-toast";
-
+import { Loader } from "lucide-react";
 export function BackgroundBeamsDemo() {
   const [email, setEmail] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
@@ -50,15 +50,15 @@ export function BackgroundBeamsDemo() {
           className="rounded-lg border border-transparent  w-full relative z-10 mt-4  from-purple-500/5 via-transparent-400/5 to-transparent    placeholder:text-gray-300/40 px-4 py-3"
         />
         <div className="z-10 flex justify-center items-center mt-3">
-          <div
-            onClick={handleClick}
-            >
-            <button
-              className="relative z-10 cursor-pointer inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
-            >
+          <div onClick={handleClick}>
+            <button className="relative z-10 cursor-pointer inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-0 focus:ring-offset-slate-50">
               <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-              <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
-                Join z Gang
+              <span className="inline-flex h-full w-[6.3rem] cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
+                {loading ? (
+                  <Loader className="w-3 h-3 animate-spin" />
+                ) : (
+                  <p> Join z Gang</p>
+                )}
               </span>
             </button>
           </div>
