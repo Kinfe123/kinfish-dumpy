@@ -18,13 +18,15 @@ export function BackgroundBeamsDemo() {
     });
 
     setLoading(false);
+  
     if (!res.ok) {
       return toast({
         title: "Something went wrong.",
-        description: "I can't receive your guess. Please try again.",
+        description: "I can't receive your guess or you might subscribed already.  Please try again.",
         variant: "destructive",
       });
     } else {
+
       return toast({
         title: "Successfully Sent",
         description: `Thanks for your guess. I will reach out and get back to you if that is a good guess! `,

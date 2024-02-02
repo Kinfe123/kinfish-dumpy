@@ -1,3 +1,4 @@
+import { getSubscriberEmals } from "@/actions/subscibers";
 import { db } from "@/db";
 import { subscribers } from "@/db/schema";
 import { transporter } from "@/lib/email-helper";
@@ -5,11 +6,17 @@ import { transporter } from "@/lib/email-helper";
 export async function POST(req: Request) {
   try {
     const { email } = await req.json();
-    if (email) {
+
+    const result = await getSubscriberEmals();
+    if (result.includes(email)) {
+      return new Response("duplicate", { status: 400 });
+    }
+
+    else if (email) {
       const req = await db.insert(subscribers).values({ email: email });
       try {
         const req2 = await transporter.sendMail({
-          from:`KinfeMichael Tariku <${process.env.USER_EMAIL}>`,
+          from: `KinfeMichael Tariku <${process.env.USER_EMAIL}>`,
           to: email,
           subject: "Thanks for showing your interest for join the gang",
           text: "Hello there , KinfeMichael here -  Thanks for joining the farmer gang , I will keep in touch with you for an updates!... Stay Safe",

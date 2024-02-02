@@ -43,6 +43,7 @@ export default function HeroSection() {
              <div className="absolute -top-4 -z-10 flex w-full justify-center">
             <div className="h-[310px] w-[310px] max-w-full animate-pulse-slow rounded-full bg-[#8678F9] opacity-20 blur-[100px]" />
           </div>
+      
           <motion.h1
             variants={FADE_DOWN_ANIMATION_VARIANTS} 
             className="text-4xl font-bold font-headingAlt bg-gradient-to-tr from-purple-300/80 to-white/90 bg-clip-text text-transparent tracking-tight sm:text-7xl  md:text-8xl"
