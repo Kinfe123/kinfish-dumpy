@@ -26,7 +26,7 @@ interface AuthorProps {
   image: string;
 }
 
-export const revalidate = 60;
+export const revalidate = 30;
 
 async function getPostFromParams(params: PostProps["params"]) {
   const slug = params?.slug?.join("/");
