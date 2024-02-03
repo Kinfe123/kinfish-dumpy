@@ -10,9 +10,7 @@ export async function POST(req: Request) {
     const result = await getSubscriberEmals();
     if (result.includes(email)) {
       return new Response("duplicate", { status: 400 });
-    }
-
-    else if (email) {
+    } else if (email) {
       const req = await db.insert(subscribers).values({ email: email });
       try {
         const req2 = await transporter.sendMail({
