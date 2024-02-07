@@ -28,7 +28,7 @@ export function BackgroundBeamsDemo() {
     } else {
 
       return toast({
-        title: "Successfully Sent",
+        title: "Successfully Subscribed",
         description: `Thanks for your guess. I will reach out and get back to you if that is a good guess! `,
         variant: "default",
       });
