@@ -16,7 +16,7 @@ export async function POST(req: Request) {
         const req2 = await transporter.sendMail({
           from: `KinfeMichael Tariku <${process.env.USER_EMAIL}>`,
           to: email,
-          subject: "Thanks for showing your interest for join the gang",
+          subject: "Thanks for showing your interest for joining the gang",
           text: "Hello there , KinfeMichael here -  Thanks for joining the farmer gang , I will keep in touch with you for an updates!... Stay Safe",
         });
         const req3 = await transporter.sendMail({
