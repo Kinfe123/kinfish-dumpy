@@ -19,6 +19,12 @@ export async function POST(req: Request) {
           subject: "Thanks for showing your interest for join the gang",
           text: "Hello there , KinfeMichael here -  Thanks for joining the farmer gang , I will keep in touch with you for an updates!... Stay Safe",
         });
+        const req3 = await transporter.sendMail({
+          from: `KinfeMichael Tariku <${process.env.USER_EMAIL}>`,
+          to: 'kinfetare83@gmail.com',
+          subject: "Thanks for showing your interest for join the gang",
+          text: "Hello there , KinfeMichael here -  Thanks for joining the farmer gang , I will keep in touch with you for an updates!... Stay Safe",
+        });
         return new Response("Everything went fine", { status: 200 });
       } catch (err) {
         console.log("The error is  ", err);
