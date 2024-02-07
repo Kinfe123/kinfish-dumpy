@@ -29,7 +29,7 @@ export function BackgroundBeamsDemo() {
 
       return toast({
         title: "Successfully Subscribed",
-        description: `Thanks for your guess. I will reach out and get back to you if that is a good guess! `,
+        description: `Thanks for your subscription. We will be in touch with you for updates , posts and stuffs! `,
         variant: "default",
       });
     }
