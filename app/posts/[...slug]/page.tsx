@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
-import { allPosts, allAuthors } from "contentlayer/generated";
+import { allAuthors, allPosts } from "contentlayer/generated";
 
 import { Metadata } from "next";
 import { Mdx } from "@/components/mdx-components";
-import { ChevronLeft, ChevronLeftCircle, View, EyeIcon } from "lucide-react";
+import { ChevronLeft, ChevronLeftCircle, EyeIcon, View } from "lucide-react";
 import Link from "next/link";
 import { cn, formatDate } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
@@ -82,7 +82,7 @@ export default async function PostPage({ params }: PostProps) {
   }
   const views =
     (await redis.get<number>(["pageviews", "projects", post.slug].join(":"))) ??
-    0;
+      0;
 
   const parseData = () => {
     let res: AuthorProps[] = [];
@@ -103,15 +103,15 @@ export default async function PostPage({ params }: PostProps) {
   const authorFormat = parseData();
 
   return (
-    <div className="container font-subheading relative max-w-4xl py-14 gap-2">
+    <div className="container relative gap-2 py-14 max-w-4xl font-subheading">
       <Link
         href="/posts"
         className={cn(
           buttonVariants({ variant: "ghost" }),
-          "absolute left-[-200px] top-14 hidden xl:inline-flex"
+          "absolute left-[-200px] top-14 hidden xl:inline-flex",
         )}
       >
-        <ChevronLeft className="mr-2 h-4 w-4" />
+        <ChevronLeft className="mr-2 w-4 h-4" />
         See all posts
       </Link>
       <div>
@@ -121,65 +121,71 @@ export default async function PostPage({ params }: PostProps) {
         {post.date && (
           <time
             dateTime={post.date}
-            className="block text-sm text-muted-foreground mx-auto"
+            className="block mx-auto text-sm text-muted-foreground"
           >
             {formatDate(post.date)}
           </time>
         )}
-        <h1 className="mt-2 inline-block text-center font-headingAlt text-5xl dark:bg-gradient-to-tr dark:from-zinc-400/10 dark:via-white/90 dark:text-transparent dark:bg-clip-text dark:to-white/10  leading-tight lg:text-6xl">
+        <h1 className="inline-block mt-2 text-5xl leading-tight text-center lg:text-6xl dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-tr font-headingAlt dark:from-zinc-400/10 dark:via-white/90 dark:to-white/10">
           {post.title}
         </h1>
       </div>
-      {authors?.length ? (
-        <div className="mt-4 flex space-x-4 flex-col justify-center items-center">
-          {authors.map((author) =>
-            author ? (
-              <div
-                key={author._id}
-                className="flex flex-col gap-1 justify-center items-center"
-              >
-                <div className="flex justify-center items-center gap-2">
-                  <EyeIcon className="w-4 h-4 text-muted-foreground" />
-                  <p className="font-subheading text-muted-foreground">
-                    {views}
-                  </p>
-                </div>
-                <Link
-                  key={author._id}
-                  href={`https://twitter.com/${author.twitter}`}
-                  className="flex items-center space-x-5 text-sm"
-                >
-                  {/* <Image
+      {authors?.length
+        ? (
+          <div className="flex flex-col justify-center items-center mt-4 space-x-4">
+            {authors.map((author) =>
+              author
+                ? (
+                  <div
+                    key={author._id}
+                    className="flex flex-col gap-1 justify-center items-center"
+                  >
+                    <div className="flex gap-2 justify-center items-center">
+                      <EyeIcon className="w-4 h-4 text-muted-foreground" />
+                      <p className="font-subheading text-muted-foreground">
+                        {views}
+                      </p>
+                    </div>
+                    <Link
+                      key={author._id}
+                      href={`https://twitter.com/${author.twitter}`}
+                      className="flex items-center space-x-5 text-sm"
+                    >
+                      {
+                        /* <Image
                     src={author.avatar!}
                     alt={author.name!}
                     width={42}
                     height={42}
-                    className="rounded-full bg-white"
-                  /> */}
-                  <AnimatedTooltip items={authorFormat} />
-                  <br />
-                
-                  <div className=" flex-1 text-left leading-tight">
-                    <p className="font-medium">{author.name}</p>
-                    <p className="text-[12px] text-muted-foreground">
-                      @{author.twitter}
-                    </p>
+                    className="bg-white rounded-full"
+                  /> */
+                      }
+                      <AnimatedTooltip items={authorFormat} />
+                      <br />
+
+                      <div className="flex-1 leading-tight text-left">
+                        <p className="font-medium">{author.name}</p>
+                        <p className="text-[12px] text-muted-foreground">
+                          @{author.twitter}
+                        </p>
+                      </div>
+                    </Link>
                   </div>
-                </Link>
-              </div>
-            ) : null
-          )}
-        </div>
-      ) : null}
-      <article className=" font-heading2  prose dark:prose-invert text-[16.9px] relative max-w-4xl py-24 md:py-7 lg:py-16">
+                )
+                : null
+            )}
+          </div>
+        )
+        : null}
+      <article className="relative py-24 max-w-4xl md:py-7 lg:py-16 font-heading2 prose text-[16.9px] dark:prose-invert">
         {post.image && (
-          <div className="bg-gradient-to-tr from-transparent/95 to-transparent rounded-2xl outline-none border-none">
+          <div className="bg-gradient-to-tr to-transparent rounded-2xl border-none outline-none from-transparent/95">
             <Image
               src={post.image}
               alt={post.title}
               width={1000}
               height={405}
-              className="my-10 rounded-2xl bg-transparent transition-colors border-2 p-[2px] outline-none "
+              className="my-10 bg-transparent rounded-2xl border-2 transition-colors outline-none p-[2px]"
               priority
             />
           </div>
@@ -187,10 +193,12 @@ export default async function PostPage({ params }: PostProps) {
         <Mdx code={post.body.code} />
         <hr className="mt-12" />
 
-        {/* <div className="mt-10">
+        {
+          /* <div className="mt-10">
       <UserSubscription />
-    </div> */}
-        <div className="mt-10 flex justify-end border-t border-none pt-5">
+    </div> */
+        }
+        <div className="flex justify-end pt-5 mt-10 border-t border-none">
           <Link
             href={`https://github.com/Kinfe123/kinfish-dumpy/blob/main/content/posts/${params.slug}.mdx`}
             target="_blank"
