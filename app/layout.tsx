@@ -51,9 +51,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <div className="w-full mx-auto py-10 px-4 font-subalt ">
               <header>
                 <FloatingNav navItems={navItems} />
-                {/* for static navbar  */}
-                {/* <StaticNavBar navItems={navItems} /> */}
-                {/* <ModeToggle /> */}
+            
               </header>
               <main>{children}</main>
             </div>
