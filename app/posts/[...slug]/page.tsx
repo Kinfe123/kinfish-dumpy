@@ -121,9 +121,9 @@ export default async function PostPage({ params }: PostProps) {
         {post.date && (
           <time
             dateTime={post.date}
-            className="block mx-auto text-sm text-muted-foreground"
+            className="block mx-auto text-md text-muted-foreground"
           >
-            {formatDate(post.date)}
+            {formatDate(post.date)} <span className='mx-1'></span> {` `} · <span className='mx-1'></span> {` `} {post.readTine} {` min`}
           </time>
         )}
         <h1 className="inline-block mt-2 text-5xl leading-tight text-center lg:text-6xl dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-tr font-headingAlt dark:from-zinc-400/10 dark:via-white/90 dark:to-white/10">
