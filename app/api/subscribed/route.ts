@@ -22,7 +22,7 @@ export async function POST(req: Request) {
         const req3 = await transporter.sendMail({
           from: `KinfeMichael Tariku <${process.env.USER_EMAIL}>`,
           to: process.env.ADMIN_EMAIL,
-          subject: "Thanks for showing your interest for join the gang",
+          subject: "Hey Farmer , We have received a s subsciption email",
           text: `Hello there , KinfeMichael here - We have received a new subsciption from email - ${email}`,
         });
         return new Response("Everything went fine", { status: 200 });
