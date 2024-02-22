@@ -103,24 +103,15 @@ export default async function PostPage({ params }: PostProps) {
   const authorFormat = parseData();
 
   return (
-    <div className=" relative gap-1 h-full py-10 mt-0 w-screen overflow-hidden font-subheading">
-      
-      
-      <div  className=" relative w-full min-h-[calc(100vh-600px)] border-b-[0.1px]  border-accent  mt-[-20px] py-10  z-20  ml-0">
-      <div className="absolute top-0 z-[-2] h-full w-screen bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]"></div>
-      <div className="absolute top-[-150px] left-0  bg-gradient-to-br from-purple-400/20 blur-lg via-transparent to-transparent w-screen h-[450px]"></div>
-      <div className="absolute top-0 left-0 right-0  h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
-          {/* <div className="absolute top-0 right-0  h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div> */}
-        <Link
-          href="/posts"
-          className={cn(
-            buttonVariants({ variant: "ghost" }),
-            "absolute left-[-200px] top-14 hidden xl:inline-flex"
-          )}
-        >
-          <ChevronLeft className="mr-2 w-4 h-4" />
-          See all posts
-        </Link>
+    <div className=" relative gap-1 h-full py-0 mt-0 w-screen overflow-hidden font-subheading">
+
+
+      <div className=" relative w-full min-h-[calc(100vh-600px)] border-b-[0.1px]  border-accent  mt-[-20px] py-10  z-20  ml-0">
+        <div className="absolute top-0 z-[-2] h-full w-screen bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]"></div>
+        <div className="absolute top-[-150px] left-0  bg-gradient-to-br from-purple-400/20 blur-lg via-transparent to-transparent w-screen h-[450px]"></div>
+        <div className="absolute top-0 left-0 right-0  h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
+        {/* <div className="absolute top-0 right-0  h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div> */}
+
         <div>
           <Views slug={post.slug} />
         </div>
@@ -130,15 +121,16 @@ export default async function PostPage({ params }: PostProps) {
               dateTime={post.date}
               className="block ml-auto text-md text-muted-foreground"
             >
-             <EyeIcon className="inline w-4 h-4 text-muted-foreground mr-1" />  {views} <span className="mx-1"></span> {` `} ·{" "} <span className="mx-1"></span>   {formatDate(post.date)} <span className="mx-1"></span> {` `} ·{" "}
+              <EyeIcon className="inline w-4 h-4 text-muted-foreground mr-1" />  {views} <span className="mx-1"></span> {` `} ·{" "} <span className="mx-1"></span>   {formatDate(post.date)} <span className="mx-1"></span> {` `} ·{" "}
               <span className="mx-1"></span> {` `} {post.readTime} {` min`}
             </time>
-          )} 
+          )}
           <h1 className="flex mt-2 text-6xl sm:text-7xl max-w-5xl  text-right  md:text-8xl lg:text-9xl leading-tight ml-auto  dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-tr font-headingAlt dark:from-zinc-400/10 dark:via-white/90 dark:to-white/10">
             {post.title}
           </h1>
           <p className="text-muted-foreground max-w-5xl mr-1 text-right text-xl md:text-xl">{post.description}</p>
         </div>
+
         {authors?.length ? (
           <div className="flex flex-col justify-center items-start mt-4 space-x-2 pr-20">
             {authors.map((author) =>
@@ -147,7 +139,7 @@ export default async function PostPage({ params }: PostProps) {
                   key={author._id}
                   className="flex flex-col gap-1 px-10 justify-end items-center"
                 >
-                
+
                   <Link
                     key={author._id}
                     href={`https://twitter.com/${author.twitter}`}
@@ -163,6 +155,18 @@ export default async function PostPage({ params }: PostProps) {
                     </div>
 
                   </Link>
+                  <div className="flex justify-center mt-3 items-center">
+                    <Link
+                      href="/posts"
+                      className={cn(
+                        buttonVariants({ variant: "ghost" }),
+                        "hidden xl:inline-flex hover:bg-transparent"
+                      )}
+                    >
+                      <ChevronLeft className="mr-2 w-4 h-4" />
+                      See all posts
+                    </Link>
+                  </div>
                 </div>
               ) : null
             )}

@@ -48,7 +48,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <div className="absolute bottom-0 left-[-10%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
           <div className="absolute bottom-0 right-[-10%] top-[-5%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-            <div className="w-full mx-auto py-0 px-0 font-subalt ">
+            <div className="w-full mx-auto py-[-50px] px-0 font-subalt ">
               <header>
                 <FloatingNav navItems={navItems} />
             
