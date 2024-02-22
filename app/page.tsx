@@ -21,7 +21,7 @@ export default function Home() {
           <Lamper />
         </div>
 
-        <TwickledDemo />
+        {/* <TwickledDemo /> */}
       </div>
     </div>
   );

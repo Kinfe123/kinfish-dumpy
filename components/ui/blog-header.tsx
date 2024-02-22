@@ -13,7 +13,7 @@ const BlogHeader = ({ totalViews }: { totalViews: number }) => {
   };
 
   return (
-    <div className="mx-auto max-w-2xl text-center">
+    <div className="mx-auto max-w-2xl py-10 text-center">
       <motion.div
         initial="hidden"
         ref={ref}

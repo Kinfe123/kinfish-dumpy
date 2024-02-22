@@ -82,7 +82,7 @@ export default async function PostPage({ params }: PostProps) {
   }
   const views =
     (await redis.get<number>(["pageviews", "projects", post.slug].join(":"))) ??
-      0;
+    0;
 
   const parseData = () => {
     let res: AuthorProps[] = [];
@@ -103,101 +103,95 @@ export default async function PostPage({ params }: PostProps) {
   const authorFormat = parseData();
 
   return (
-    <div className="container relative gap-2 py-14 max-w-4xl font-subheading">
-      <Link
-        href="/posts"
-        className={cn(
-          buttonVariants({ variant: "ghost" }),
-          "absolute left-[-200px] top-14 hidden xl:inline-flex",
-        )}
-      >
-        <ChevronLeft className="mr-2 w-4 h-4" />
-        See all posts
-      </Link>
-      <div>
-        <Views slug={post.slug} />
-      </div>
-      <div className="flex flex-col justify-center items-center">
-        {post.date && (
-          <time
-            dateTime={post.date}
-            className="block mx-auto text-md text-muted-foreground"
-          >
-            {formatDate(post.date)} <span className='mx-1'></span> {` `} · <span className='mx-1'></span> {` `} {post.readTime} {` min`}
-          </time>
-        )}
-        <h1 className="inline-block mt-2 text-5xl leading-tight text-center lg:text-6xl dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-tr font-headingAlt dark:from-zinc-400/10 dark:via-white/90 dark:to-white/10">
-          {post.title}
-        </h1>
-      </div>
-      {authors?.length
-        ? (
-          <div className="flex flex-col justify-center items-center mt-4 space-x-4">
+    <div className=" relative gap-1 h-full py-0 mt-0 w-screen overflow-hidden font-subheading">
+
+
+      <div className=" relative w-full min-h-[calc(100vh-600px)] border-b-[0.1px]  border-accent  mt-[-20px] py-10  z-20  ml-0">
+        <div className="absolute top-0 z-[-2] h-full w-screen bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]"></div>
+        <div className="absolute top-[-150px] left-0  bg-gradient-to-br from-purple-400/20 blur-lg via-transparent to-transparent w-screen h-[450px]"></div>
+        <div className="absolute top-0 left-0 right-0  h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
+        {/* <div className="absolute top-0 right-0  h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div> */}
+
+        <div>
+          <Views slug={post.slug} />
+        </div>
+        <div className="flex flex-col justify-end items-end px-10">
+          {post.date && (
+            <time
+              dateTime={post.date}
+              className="block ml-auto text-md text-muted-foreground"
+            >
+              <EyeIcon className="inline w-4 h-4 text-muted-foreground mr-1" />  {views} <span className="mx-1"></span> {` `} ·{" "} <span className="mx-1"></span>   {formatDate(post.date)} <span className="mx-1"></span> {` `} ·{" "}
+              <span className="mx-1"></span> {` `} {post.readTime} {` min`}
+            </time>
+          )}
+          <h1 className="flex mt-2 text-6xl sm:text-7xl max-w-5xl  text-right  md:text-8xl lg:text-9xl leading-tight ml-auto  dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-tr font-headingAlt dark:from-zinc-400/10 dark:via-white/90 dark:to-white/10">
+            {post.title}
+          </h1>
+          <p className="text-muted-foreground max-w-5xl mr-1 text-right text-xl md:text-xl">{post.description}</p>
+        </div>
+
+        {authors?.length ? (
+          <div className="flex flex-col justify-center items-start mt-4 space-x-2 pr-20">
             {authors.map((author) =>
-              author
-                ? (
-                  <div
+              author ? (
+                <div
+                  key={author._id}
+                  className="flex flex-col gap-1 px-10 justify-end items-center"
+                >
+
+                  <Link
                     key={author._id}
-                    className="flex flex-col gap-1 justify-center items-center"
+                    href={`https://twitter.com/${author.twitter}`}
+                    className="flex items-center justify-end  space-x-5 text-sm"
                   >
-                    <div className="flex gap-2 justify-center items-center">
-                      <EyeIcon className="w-4 h-4 text-muted-foreground" />
-                      <p className="font-subheading text-muted-foreground">
-                        {views}
+                    <AnimatedTooltip items={authorFormat} />
+                    <br />
+                    <div className="flex-1 leading-tight text-right">
+                      <p className="font-medium text-md uppercase">{author.name}</p>
+                      <p className="text-[12px] text-muted-foreground">
+                        @{author.twitter}
                       </p>
                     </div>
-                    <Link
-                      key={author._id}
-                      href={`https://twitter.com/${author.twitter}`}
-                      className="flex items-center space-x-5 text-sm"
-                    >
-                      {
-                        /* <Image
-                    src={author.avatar!}
-                    alt={author.name!}
-                    width={42}
-                    height={42}
-                    className="bg-white rounded-full"
-                  /> */
-                      }
-                      <AnimatedTooltip items={authorFormat} />
-                      <br />
 
-                      <div className="flex-1 leading-tight text-left">
-                        <p className="font-medium">{author.name}</p>
-                        <p className="text-[12px] text-muted-foreground">
-                          @{author.twitter}
-                        </p>
-                      </div>
+                  </Link>
+                  <div className="flex justify-center mt-3 items-center">
+                    <Link
+                      href="/posts"
+                      className={cn(
+                        buttonVariants({ variant: "ghost" }),
+                        "inline-flex hover:bg-transparent"
+                      )}
+                    >
+                      <ChevronLeft className="mr-2 w-4 h-4" />
+                      See all posts
                     </Link>
                   </div>
-                )
-                : null
+                </div>
+              ) : null
             )}
           </div>
-        )
-        : null}
-      <article className="relative py-24 max-w-4xl md:py-7 lg:py-16 font-heading2 prose text-[16.9px] dark:prose-invert">
+        ) : null}
+      </div>
+      <article className="relative container mx-w-4xl flex-col py-24 max-w-4xl md:py-7 lg:py-16 font-heading2 prose text-[16.9px] dark:prose-invert">
         {post.image && (
           <div className="bg-gradient-to-tr to-transparent rounded-2xl border-none outline-none from-transparent/95">
-            <Image
+            {/* <Image
               src={post.image}
               alt={post.title}
               width={1000}
               height={405}
               className="my-10 bg-transparent rounded-2xl border-2 transition-colors outline-none p-[2px]"
               priority
-            />
+            /> */}
           </div>
         )}
         <Mdx code={post.body.code} />
         <hr className="mt-12" />
 
-        {
-          /* <div className="mt-10">
+        {/* <div className="mt-10">
       <UserSubscription />
-    </div> */
-        }
+    </div> */}
         <div className="flex justify-end pt-5 mt-10 border-t border-none">
           <Link
             href={`https://github.com/Kinfe123/kinfish-dumpy/blob/main/content/posts/${params.slug}.mdx`}
