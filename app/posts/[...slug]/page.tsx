@@ -104,10 +104,7 @@ export default async function PostPage({ params }: PostProps) {
 
   return (
     <div className=" relative gap-1 h-full py-10 mt-0 w-screen overflow-hidden font-subheading">
-      <div style={{
-        backgroundImage:
-          "linear-gradient(to bottom, #0120121, #000000 800px)",
-      }} className="w-full min-h-[calc(100vh-500px)] border-b-[0.1px] bg-background border-background  mt-[-20px]  z-20 p-10  ml-0">
+      <div  className="w-full min-h-[calc(100vh-500px)] border-b-[0.1px]  border-accent  mt-[-20px]  z-20 p-10  ml-0">
         <Link
           href="/posts"
           className={cn(
@@ -136,7 +133,7 @@ export default async function PostPage({ params }: PostProps) {
           </h1>
         </div>
         {authors?.length ? (
-          <div className="flex flex-col justify-center items-end mt-4 space-x-2 pr-20">
+          <div className="flex flex-col justify-center items-start mt-4 space-x-2 pr-20">
             {authors.map((author) =>
               author ? (
                 <div
@@ -147,16 +144,16 @@ export default async function PostPage({ params }: PostProps) {
                   <Link
                     key={author._id}
                     href={`https://twitter.com/${author.twitter}`}
-                    className="flex items-center justify-end  space-x-2 text-sm"
+                    className="flex items-center justify-end  space-x-5 text-sm"
                   >
+                    <AnimatedTooltip items={authorFormat} />
+                    <br />
                     <div className="flex-1 leading-tight text-right">
                       <p className="font-medium text-md uppercase">{author.name}</p>
                       <p className="text-[12px] text-muted-foreground">
                         @{author.twitter}
                       </p>
                     </div>
-                    <AnimatedTooltip items={authorFormat} />
-                    <br />
 
                   </Link>
                 </div>
