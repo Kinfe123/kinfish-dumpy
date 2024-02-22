@@ -104,7 +104,10 @@ export default async function PostPage({ params }: PostProps) {
 
   return (
     <div className=" relative gap-1 h-full py-10 mt-0 w-screen overflow-hidden font-subheading">
-      <div className="bg-red-900 w-full min-h-[calc(100vh-500px)] border-b-2 border-white  mt-[-20px]  z-20 p-10  ml-0">
+      <div style={{
+        backgroundImage:
+          "linear-gradient(to bottom, #0120121, #000000 800px)",
+      }} className="w-full min-h-[calc(100vh-500px)] border-b-[0.1px] bg-background border-background  mt-[-20px]  z-20 p-10  ml-0">
         <Link
           href="/posts"
           className={cn(
