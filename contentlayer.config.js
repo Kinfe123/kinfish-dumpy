@@ -18,7 +18,7 @@ const computedFields = {
     type: "number",
     resolve: (doc) => {
       const content = doc.body.raw
-      const wordsPerMinute = 200
+      const wordsPerMinute = 210
       const numberOfWords = content.split(/\s/g).length
       const minutes = numberOfWords / wordsPerMinute
       return Math.ceil(minutes)
