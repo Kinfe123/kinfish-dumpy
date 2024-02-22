@@ -104,7 +104,13 @@ export default async function PostPage({ params }: PostProps) {
 
   return (
     <div className=" relative gap-1 h-full py-10 mt-0 w-screen overflow-hidden font-subheading">
-      <div  className="w-full min-h-[calc(100vh-500px)] border-b-[0.1px]  border-accent  mt-[-20px]  z-20 p-10  ml-0">
+      
+      
+      <div  className=" relative w-full min-h-[calc(100vh-600px)] border-b-[0.1px]  border-accent  mt-[-20px] py-10  z-20  ml-0">
+      <div className="absolute top-0 z-[-2] h-full w-screen bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]"></div>
+      <div className="absolute top-[-150px] left-0  bg-gradient-to-br from-purple-400/20 blur-lg via-transparent to-transparent w-screen h-[450px]"></div>
+      <div className="absolute top-0 left-0 right-0  h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
+          {/* <div className="absolute top-0 right-0  h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div> */}
         <Link
           href="/posts"
           className={cn(
@@ -118,7 +124,7 @@ export default async function PostPage({ params }: PostProps) {
         <div>
           <Views slug={post.slug} />
         </div>
-        <div className="flex flex-col justify-end items-end">
+        <div className="flex flex-col justify-end items-end px-10">
           {post.date && (
             <time
               dateTime={post.date}
@@ -128,7 +134,7 @@ export default async function PostPage({ params }: PostProps) {
               <span className="mx-1"></span> {` `} {post.readTime} {` min`}
             </time>
           )} 
-          <h1 className="flex mt-2 text-6xl sm:text-7xl max-w-4xl   text-right  md:text-8xl lg:text-9xl leading-tight ml-auto  dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-tr font-headingAlt dark:from-zinc-400/10 dark:via-white/90 dark:to-white/10">
+          <h1 className="flex mt-2 text-6xl sm:text-7xl max-w-5xl  text-right  md:text-8xl lg:text-9xl leading-tight ml-auto  dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-tr font-headingAlt dark:from-zinc-400/10 dark:via-white/90 dark:to-white/10">
             {post.title}
           </h1>
           <p className="text-muted-foreground max-w-5xl mr-1 text-right text-xl md:text-xl">{post.description}</p>
@@ -139,7 +145,7 @@ export default async function PostPage({ params }: PostProps) {
               author ? (
                 <div
                   key={author._id}
-                  className="flex flex-col gap-1 justify-end items-center"
+                  className="flex flex-col gap-1 px-10 justify-end items-center"
                 >
                 
                   <Link
