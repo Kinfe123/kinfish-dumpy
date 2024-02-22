@@ -160,7 +160,7 @@ export default async function PostPage({ params }: PostProps) {
                       href="/posts"
                       className={cn(
                         buttonVariants({ variant: "ghost" }),
-                        "hidden xl:inline-flex hover:bg-transparent"
+                        "inline-flex hover:bg-transparent"
                       )}
                     >
                       <ChevronLeft className="mr-2 w-4 h-4" />
