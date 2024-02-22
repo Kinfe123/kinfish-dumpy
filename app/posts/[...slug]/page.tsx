@@ -131,6 +131,7 @@ export default async function PostPage({ params }: PostProps) {
           <h1 className="flex mt-2 text-6xl sm:text-7xl max-w-4xl   text-right  md:text-8xl lg:text-9xl leading-tight ml-auto  dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-tr font-headingAlt dark:from-zinc-400/10 dark:via-white/90 dark:to-white/10">
             {post.title}
           </h1>
+          <p className="text-muted-foreground max-w-5xl mr-1 text-right text-xl md:text-xl">{post.description}</p>
         </div>
         {authors?.length ? (
           <div className="flex flex-col justify-center items-start mt-4 space-x-2 pr-20">
