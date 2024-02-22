@@ -29,7 +29,7 @@ export default async function BlogPage() {
   
 
   return (
-    <div className="container max-w-4xl py-6 lg:py-14">
+    <div className="container max-w-4xl py-10 lg:py-14">
       <div>
         <Spotlight fill="#9284D4" className="-rotate-1" />
       </div>
