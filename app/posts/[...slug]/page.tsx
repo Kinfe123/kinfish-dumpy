@@ -103,8 +103,8 @@ export default async function PostPage({ params }: PostProps) {
   const authorFormat = parseData();
 
   return (
-    <div className=" relative gap-2 h-full py-10 mt-0 w-screen overflow-hidden font-subheading">
-      <div className="bg-red-900 w-full min-h-[calc(100vh-500px)]  mt-[-20px]  z-20 p-10 ml-0">
+    <div className=" relative gap-1 h-full py-10 mt-0 w-screen overflow-hidden font-subheading">
+      <div className="bg-red-900 w-full min-h-[calc(100vh-500px)] border-b-2 border-white  mt-[-20px]  z-20 p-10  ml-0">
         <Link
           href="/posts"
           className={cn(
@@ -124,42 +124,37 @@ export default async function PostPage({ params }: PostProps) {
               dateTime={post.date}
               className="block ml-auto text-md text-muted-foreground"
             >
-              {formatDate(post.date)} <span className="mx-1"></span> {` `} ·{" "}
+             <EyeIcon className="inline w-4 h-4 text-muted-foreground mr-1" />  {views} <span className="mx-1"></span> {` `} ·{" "} <span className="mx-1"></span>   {formatDate(post.date)} <span className="mx-1"></span> {` `} ·{" "}
               <span className="mx-1"></span> {` `} {post.readTime} {` min`}
             </time>
           )} 
-          <h1 className="flex justify-end items-end mt-2 text-6xl sm:text-7xl max-w-4xl   text-right md:text-8xl lg:text-9xl leading-tight ml-auto  dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-tr font-headingAlt dark:from-zinc-400/10 dark:via-white/90 dark:to-white/10">
+          <h1 className="flex mt-2 text-6xl sm:text-7xl max-w-4xl   text-right  md:text-8xl lg:text-9xl leading-tight ml-auto  dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-tr font-headingAlt dark:from-zinc-400/10 dark:via-white/90 dark:to-white/10">
             {post.title}
           </h1>
         </div>
         {authors?.length ? (
-          <div className="flex flex-col justify-center items-center mt-4 space-x-4">
+          <div className="flex flex-col justify-center items-end mt-4 space-x-2 pr-20">
             {authors.map((author) =>
               author ? (
                 <div
                   key={author._id}
-                  className="flex flex-col gap-1 justify-center items-center"
+                  className="flex flex-col gap-1 justify-end items-center"
                 >
-                  <div className="flex gap-2 justify-center items-center">
-                    <EyeIcon className="w-4 h-4 text-muted-foreground" />
-                    <p className="font-subheading text-muted-foreground">
-                      {views}
-                    </p>
-                  </div>
+                
                   <Link
                     key={author._id}
                     href={`https://twitter.com/${author.twitter}`}
-                    className="flex items-center space-x-5 text-sm"
+                    className="flex items-center justify-end  space-x-2 text-sm"
                   >
-                    <AnimatedTooltip items={authorFormat} />
-                    <br />
-
-                    <div className="flex-1 leading-tight text-left">
-                      <p className="font-medium">{author.name}</p>
+                    <div className="flex-1 leading-tight text-right">
+                      <p className="font-medium text-md uppercase">{author.name}</p>
                       <p className="text-[12px] text-muted-foreground">
                         @{author.twitter}
                       </p>
                     </div>
+                    <AnimatedTooltip items={authorFormat} />
+                    <br />
+
                   </Link>
                 </div>
               ) : null
