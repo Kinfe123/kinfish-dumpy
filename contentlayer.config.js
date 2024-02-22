@@ -14,7 +14,7 @@ const computedFields = {
     type: "string",
     resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
   },
-  readTine: {
+  readTime: {
     type: "number",
     resolve: (doc) => {
       const content = doc.body.raw
