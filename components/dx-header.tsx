@@ -14,7 +14,7 @@ const DxHeader = () => {
   return (
     <div>
       <div className="max-w-6xl mx-auto">
-        <Spotlight fill="#9284D4" />
+        {/* <Spotlight fill="#9284D4" /> */}
       </div>
       <div className="h-[30rem] w-full dark:bg-transparent bg-white  dark:bg-grid-white/[0.1]  bg-opacity-5 bg-grid-black/[0.1] relative flex items-center justify-center">
         {/* Radial gradient for the container to give a faded look */}
