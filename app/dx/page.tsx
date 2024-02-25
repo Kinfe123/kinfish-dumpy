@@ -13,10 +13,10 @@ const DxPage = async () => {
     // const res = await extractFromLink(url);
     // console.log(res);
   return (
-    <div className="min-h-screen  mx-auto max-w-4xl mt-12 px-6 lg:px-8 bg-transparent overflow-hidden bg-gradient-to-tr from-transparent to-transparent">
-       <Particles quantity={200}/>
+    <div className="min-h-screen  mx-auto w-screen mt-0 px-6 lg:px-0 bg-transparent overflow-hidden bg-gradient-to-tr from-transparent to-transparent">
 
        <DxHeader />
+       
     </div>
   );
 };
