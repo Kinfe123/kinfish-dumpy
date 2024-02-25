@@ -3,7 +3,7 @@ import { PostCard } from "./ui/card-binary-view";
 import { compareDesc } from "date-fns";
 import { Separator } from "./ui/separator";
 import { TextGenerateEffect } from "./ui/text-gen";
-import ButtonStd from "./ui/button-std";
+
 import Link from "next/link";
 import HackyButton from "./hacky-button";
 const Trendy = () => {
