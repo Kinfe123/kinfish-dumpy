@@ -106,12 +106,12 @@ export default async function PostPage({ params }: PostProps) {
     <div className=" relative gap-1 h-full py-0 mt-0 w-screen overflow-hidden font-subheading">
 
 
-      <div className=" relative w-full min-h-[calc(100vh-600px)] border-b-[0.1px]  border-accent  mt-[-20px] py-10  z-20  ml-0">
+      <div className=" relative  w-full min-h-[calc(100vh-600px)] border-b-[0.1px]  border-accent  mt-[-20px] py-10  z-20  ml-0">
         <div className="absolute top-0 z-[-2] h-full w-screen bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]"></div>
         <div className="absolute top-[-150px] left-0  bg-gradient-to-br from-purple-400/20 blur-lg via-transparent to-transparent w-screen h-[450px]"></div>
         <div className="absolute top-0 left-0 right-0  h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
         {/* <div className="absolute top-0 right-0  h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div> */}
-
+        <div className='mb-10'/>
         <div>
           <Views slug={post.slug} />
         </div>
