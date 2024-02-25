@@ -18,11 +18,11 @@ export default function HeroSection() {
     show: { opacity: 1, y: 0, transition: { type: "spring" } },
   };
   return (
-    <div className="mx-auto max-w-5xl mt-12 px-6 lg:px-8 bg-transparent relative">
+    <div className="mx-auto max-w-6xl mt-12 px-6 lg:px-8 bg-transparent relative">
       <div className="max-w-4xl absolute">
         <Spotlight fill="#9284D4" />
       </div>
-      <div className="mx-auto max-w-3xl text-center ">
+      <div className="mx-auto max-w-5xl text-center ">
         <motion.div
           initial="hidden"
           ref={ref}
@@ -46,7 +46,7 @@ export default function HeroSection() {
 
           <motion.h1
             variants={FADE_DOWN_ANIMATION_VARIANTS}
-            className="text-4xl font-bold font-headingAlt bg-gradient-to-tr from-purple-300/80 to-white/90 bg-clip-text text-transparent tracking-tight sm:text-7xl  md:text-8xl"
+            className="text-4xl font-bold font-headingAlt bg-gradient-to-tr from-purple-300/80 to-white/90 bg-clip-text text-transparent tracking-normal sm:text-7xl  md:text-9xl"
           >
             <Feeder feed="Latest Blogs" />
             <div className="mb-4"></div>
