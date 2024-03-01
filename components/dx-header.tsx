@@ -47,8 +47,6 @@ const DxHeader = () => {
 
           </motion.h1>
           <ButtonShadowGradient />
-          <Particles quantity={200} />
-          <Particles quantity={200}/>
         
         </motion.div>
       </div>
