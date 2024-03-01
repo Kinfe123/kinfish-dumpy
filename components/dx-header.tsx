@@ -1,9 +1,9 @@
 "use client";
 
 import { useRef } from "react";
-import Spotlight from "./ui/Spotlight";
+
 import { motion, useInView } from "framer-motion";
-import Particles from "./particles";
+
 import ButtonShadowGradient from "./bg-dx";
 const DxHeader = () => {
   const FADE_DOWN_ANIMATION_VARIANTS = {
