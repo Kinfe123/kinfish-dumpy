@@ -18,7 +18,6 @@ const DxHeader = () => {
         {/* <Spotlight fill="#9284D4" /> */}
       </div>
       <div className="h-screen w-full dark:bg-transparent bg-white  dark:bg-grid-white/[0.06]  bg-opacity-[0.001] bg-grid-black/[0.1] relative flex items-center justify-center">
-       
         {/* Radial gradient for the container to give a faded look */}
         <div className="absolute mx-auto  pointer-events-none inset-0 flex items-center justify-center dark:bg-transparent bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_5%,black)]"></div>
         <motion.div
