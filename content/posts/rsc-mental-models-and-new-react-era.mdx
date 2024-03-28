@@ -2,10 +2,133 @@
 title: RSC and Mental models - React on Server
 description: Most of the thing about React Servers as well Nextjs Adoption
 image: /images/blogs/ai-2.png
-date: "2024-02-25"
+date: "2024-04-28"
 authors:
   - kinfish
 ---
 
 
-Coming sooon... wanna collab on this post - hit me up at [Telegram](https://t.me/Kinfe123)
+## Hm... Quite Interesting
+
+They is a lot to cover about the new Mental Models / Archs that the react and Nextjs has come up with. Yeah we will discuss a lot of thing related to the **RSC** and Some points of confusion will be addressed.
+
+#@ Good old days
+
+Earlier , React is supposed to replace HTML + JS concept by something called JSX - which is a bundled rich components that makes your website interactive and responsive to the user. that we call it a frontend framework. i.e framework is not libraries. libraries are meant to solve a specific set of closly related task which 
+you can call it as Module but they still have difference. Yeah the point is not this. so lets move on to our points.
+
+Traditional server-clinet model does the job but we need better user xp at scale or not - use DRY here - no more memoized roundtrip from client to servers if you could think of it as recurssive function so called DP - Dynamic Programming. which helds us using client react API to do all the job but it is not at a scale 
+so why dont we need something as preprocessor like C++ Macro tag - means liee somthing or somewhere the data can be store and process upfront and bringing the latest data to the end users. i am not saying this is the so effecient but it something that is not new for us. Devs lik PHP , Rails and other Server side langs not all but  been using this thing.
+
+however bring this in to life on client framework is something cool or somehow bad yeah but the idea of pruning data on sever for UI layer is pretty cool. 
+The clinet side is just no-brainer just what you want to see is there in react itself.
+
+## **RSC** sratching the surface
+
+Lets start by definining **RSC** by my own terms - It is new Mental model for react that allows us to kind of deviate us from client heavy to hybrid or server heavy model.
+Yeah we all know that React is all frontend framework , no idea about servers only cares about bundlers - ESbuilds :)
+
+I can also be saying **RSC** is aiming for zero-bundle-size React Server Components, which aim to enable modern UX with a server-driven mental model. BUt this is so different from SSR(more of dyanmic) and SSG (more of static). You will learn about this one also.
+
+
+## SSR vs SSG ?  The combo ? 
+So lets deep dive in , SSR is more technical word is like turning JSX into an HTML string, Yeah this is input and th bi-product symbosis.
+
+
+When we break it down , it is a way to prepare and render your compoents on server instead of browser and send the final product to browser called HTML,  which can appear to result in a fast First Contentful Paint or Largest Contentful Paint.
+
+so the most simplified step will looks something like this - JSX -> Server(runtime) -> HTML -> Client Browser.
+
+
+With SSG, all the pages are generated at build time as static pages (with some Javascript tricks to load/preload content as fast as possible). The Time-To-First-Byte is the best you can get and you can host your website on a Static
+
+But like you can consider it like this SSG is more for static website like something that the data can be processed at a build time. so it is always available as props from layout as high level access. which we can deploy it on CDN . but SSG is like for dyanmic content but there exists a data that always up-to-date and let us generate an HTML from that.
+
+It is the limitation of SSR leads to us for most of the concepts around **RSC**. since JS is still need to be fetched from remote server just to go through hydration process. BUT what is hydration here tho ? Hydration is like water bringing a functionality to your body. it is like paiting of Javascript to our website to make it interactive for initially loaded page. You can break down the step ,   hydration = download html -> download js -> evaluate js -> attaching event listener -> paint the state. Yeah this step needs to be done even if it SSR'ed
+There is some web framework that do  resumablity like qwik does - like serlializing everything on pause and resumes any where inside of your app. which is an optimization for hydration  
+Enough of this concepts - lets get to **RSC** like i said .. it is something that makes react to be somehow more than UI framework .. Yeah it break it down.
+
+As i said it is like migrating from client first to server first or hybrid so that we can significant reduce a bundle size that shipped to the client so that they user would have a good UX. 
+
+
+
+so what happens is
+1 - The user opens their browser and requests to open the webpage.
+2 - The server creates rendered content in HTML file and sends it to the user.
+3 - Maeanwhile the static assets can be loaded either from CDN , Edge or Dedicated Servers
+4 - So the user is not trapped in to the Client - server waterfalls means at least it can get the HTML down the wire instead of being blocked waiting for something cocked finished 
+
+With SSR, the website pages are generated at runtime on the server means it needs a runtime to serve those requests like Nodejs. The contents are also up-to-date even th roundtrip still persist from you to make a request and SSR gives you a latest data on server
+
+we can say like SSR provides a faster load time not build time , ideal for static sites , for SEO since it already made the crawler can index that up but it comes with some cons tho like server costs for data heavy apps , caching might be an issue here, also Time-To-First-Byte is a bit slower because the content is generated on the server for each request but you can prevent this from happening by adding a caching layer with short TTL(Time To Live) to impove the performance becuase you can not deploy it on the Static CDN 
+
+
+So RSC and SSR ar not the same thing but they are so complimentary to each other ,  enabling rendering into an intermediate abstraction format without needing to add to the JavaScript bundle ,this allows us for merging JSX tree node so called server tree with the client tree node without lossing any kind of state and interactivity. 
+
+
+## Server Components - Bad a** niggas
+
+Those are the components that are render only on the sever. Those are the one that will be streamed down to the client browser. also they are a replacement for SSR but creating a really fast early paint and reduce JS bundles that the client needs to download. this not meant to dump on the JS , still JS is the most important part of it. since you can not avoid it , atleast we make something around and optimize it because **GREAT POWER COMES WITH GREAT CHUNK** 
+
+if you are familiar with Nextjs - yeah it is server component first backend(hmm) framework solving a lof modern web problems. which you optout using  `use client` directive to acheive more of client first thing
+
+Server comp renders before the client so using server component in client causes a waterfall issue (the stuff that comes first - server at a build time before hand). when we say clients we also mean by - client means any one who want to consume the server components may be browsers , another servers origins. One thing to note also the client compoents will be rendered once at compilation with undefined values.
+
+
+So lets see some core concepts and we will see indepth more on part 2 or something like that
+
+So wheen we talk about RSC we usaully have to talk about the backbone of it , which is Suspensing and Streaming. Let break down them up 
+
+
+**Suspensing** is a big pipe architecture adoption, it is  all about streaming ,  handling promises  
+streaming data and present the UI as soon as they are available.
+
+``js
+<Suspense fallback={<LoadingForAsyncComp />}>
+  <SomeAsyncComp />
+
+</Suspense>
+
+
+```
+
+here on the above we are streaming a data from server to client , also something that could take us sometimee like fetching from remote servers , yeah until all things get resolved when can make sure to display the fallback.
+
+
+**Streaming**:  is like parallelism helping in popping the intial shells instead of blocking , yeah  server side html streaming and data fetching doing them at parallel is just an optimization. it is like moving from blocking to nonblocking model.
+
+It is like sending the data bit by bit for the client. 
+
+take a senarios where you display gallary of 100 picture with a given paginated page , so naive way is to block the everything till the data is available and showing spinner as fallback , which is not bad tho .. but what if the image differs in size like having 2 extreme sizes i.e 20MB - the highest and 10KB - the smallest so do you think i should sacrifice the FCP or LCP for this 
+size issue so another good possible solution will be what if we make size agnostic like we send the a pic as soon it as available and showing a spinner , shimmers or skeleon as fallback for each iamge till loaded intead of showing the same loading spinner for all waiting for all to resolve. so sending data bit by bit and construct html as fly time is suge a huge optimization that is made so far.
+ when using React Suspense, components would wait until all the data and components in their subtree were ready before rendering anything. This could lead to delays in displaying content to the user, especially if there were asynchronous operations or network requests involved.
+
+With the streaming feature, React components can start rendering and streaming their content to the client as soon as it's ready, regardless of the completion status of other components or data in the tree. This allows for a more progressive rendering experience, where the user sees partial content being rendered incrementally
+
+
+and Streaming and Suspense are something that goes together well, like for streaming a contents you have to Suspense those who are not loaded properly with fallback.
+
+## Use client vs Use server nextjs api
+
+it does really means the client and servre compoents, it is not even like that 
+
+**Use client** means you are opting out server component(which means acheiving the client compoent), from nextjs default server first component approach and you are telling the bunlder - Turbopack that you need to split this code on seperate client folder so that later if can be fetched easily once we know where we put our serevr code and client codes.
+so when ever you need interactivity , you need to optout from using `use client` directive to use client first interactivity.
+
+**Use server** means not a server compoents but it is the bridge between your server code and client components it like a code that you can generate from client on server like when the form submitted you can use `use server` to kind of bridge the connection between client codee to server code like recording something on db or something . those function exclusively runs on servers but triggered from the client
+
+
+Next up 
+
+- RSC Payloads
+- ReactElement VS JSX 
+- In depth guide on ReactDOM client and server apis for parsing JSX Symtax tree -> HTML 
+- Suspense Behind the scene like readableStreams , promises , and SQS kind of implementation along with it 
+- Simple RSC frameworks - if i am fortunate with Nitro + vite  with @beka_cru on voice chat on my T[elegram channel](https://t.me/kinfishfarms)
+- Strict rules on react 19 - api less vs bundler heavy or strict rules
+
+Yeah much is coming on the series
+
+
+
+wanna collab on this post - hit me up at [Telegram](https://t.me/Kinfe123) or fork the project ena send pr i would love to see you here

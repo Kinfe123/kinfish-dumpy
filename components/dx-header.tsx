@@ -18,7 +18,7 @@ const DxHeader = () => {
         {/* <Spotlight fill="#9284D4" /> */}
       </div>
       <div className="h-screen w-full dark:bg-transparent bg-white  dark:bg-grid-white/[0.06]  bg-opacity-[0.001] bg-grid-black/[0.1] relative flex items-center justify-center">
-       
+
         {/* Radial gradient for the container to give a faded look */}
         <div className="absolute mx-auto  pointer-events-none inset-0 flex items-center justify-center dark:bg-transparent bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_5%,black)]"></div>
         <motion.div
@@ -36,6 +36,12 @@ const DxHeader = () => {
             },
           }}
         >
+          <div className="w-screen overflow-hidden">
+
+            <Particles quantity={200} />
+            <Particles quantity={200} />
+
+          </div>
           <motion.h1
             variants={FADE_DOWN_ANIMATION_VARIANTS}
             className="text-4xl text-center  max-w-6xl mx-auto  font-bold font-heading bg-gradient-to-tr from-purple-300/80 to-white/90 bg-clip-text text-transparent tracking-tight sm:text-8xl md:text-[10rem] "
@@ -47,9 +53,8 @@ const DxHeader = () => {
 
           </motion.h1>
           <ButtonShadowGradient />
-          <Particles quantity={200} />
-          <Particles quantity={200}/>
-        
+          {/* <Particles quantity={200}/> */}
+
         </motion.div>
       </div>
     </div>
