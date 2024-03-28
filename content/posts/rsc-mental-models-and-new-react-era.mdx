@@ -1,5 +1,5 @@
 ---
-title: RSC and Mental models - React on Server
+title: **RSC** and Mental models - React on Server
 description: Most of the thing about React Servers as well Nextjs Adoption
 image: /images/blogs/ai-2.png
 date: "2024-02-25"
@@ -10,7 +10,7 @@ authors:
 
 ## Hm... Quite Interesting
 
-They is a lot to cover about the new Mental Models / Archs that the react and Nextjs has come up with. Yeah we will discuss a lot of thing related to the RSC and Some points of confusion will be addressed.
+They is a lot to cover about the new Mental Models / Archs that the react and Nextjs has come up with. Yeah we will discuss a lot of thing related to the **RSC** and Some points of confusion will be addressed.
 
 #@ Good old days
 
@@ -23,12 +23,12 @@ so why dont we need something as preprocessor like C++ Macro tag - means liee so
 however bring this in to life on client framework is something cool or somehow bad yeah but the idea of pruning data on sever for UI layer is pretty cool. 
 The clinet side is just no-brainer just what you want to see is there in react itself.
 
-## RSC sratching the surface
+## **RSC** sratching the surface
 
-Lets start by definining RSC by my own terms - It is new Mental model for react that allows us to kind of deviate us from client heavy to hybrid or server heavy model.
+Lets start by definining **RSC** by my own terms - It is new Mental model for react that allows us to kind of deviate us from client heavy to hybrid or server heavy model.
 Yeah we all know that React is all frontend framework , no idea about servers only cares about bundlers - ESbuilds :)
 
-I can also be saying RSC is aiming for zero-bundle-size React Server Components, which aim to enable modern UX with a server-driven mental model. BUt this is so different from SSR(more of dyanmic) and SSG (more of static). You will learn about this one also.
+I can also be saying **RSC** is aiming for zero-bundle-size React Server Components, which aim to enable modern UX with a server-driven mental model. BUt this is so different from SSR(more of dyanmic) and SSG (more of static). You will learn about this one also.
 
 
 ## SSR vs SSG ?  The combo ? 
@@ -44,9 +44,9 @@ With SSG, all the pages are generated at build time as static pages (with some J
 
 But like you can consider it like this SSG is more for static website like something that the data can be processed at a build time. so it is always available as props from layout as high level access. which we can deploy it on CDN . but SSG is like for dyanmic content but there exists a data that always up-to-date and let us generate an HTML from that.
 
-It is the limitation of SSR leads to us for most of the concepts around RSC. since JS is still need to be fetched from remote server just to go through hydration process. BUT what is hydration here tho ? Hydration is like water bringing a functionality to your body. it is like paiting of Javascript to our website to make it interactive for initially loaded page. You can break down the step ,   hydration = download html -> download js -> evaluate js -> attaching event listener -> paint the state. Yeah this step needs to be done even if it SSR'ed
+It is the limitation of SSR leads to us for most of the concepts around **RSC**. since JS is still need to be fetched from remote server just to go through hydration process. BUT what is hydration here tho ? Hydration is like water bringing a functionality to your body. it is like paiting of Javascript to our website to make it interactive for initially loaded page. You can break down the step ,   hydration = download html -> download js -> evaluate js -> attaching event listener -> paint the state. Yeah this step needs to be done even if it SSR'ed
 
-Enough of this concepts - lets get to RSC like i said .. it is something that makes react to be somehow more than UI framework .. Yeah it break it down.
+Enough of this concepts - lets get to **RSC** like i said .. it is something that makes react to be somehow more than UI framework .. Yeah it break it down.
 
 As i said it is like migrating from client first to server first or hybrid so that we can significant reduce a bundle size that shipped to the client so that they user would have a good UX. 
 
