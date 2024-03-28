@@ -29,7 +29,7 @@ I can also be saying RSC is aiming for zero-bundle-size React Server Components,
 So lets deep dive in , SSR is more technical word is like turning JSX into an HTML string, Yeah this is input and th bi-product symbosis.
 
 
-When we break it down , it is a way to prepare and render your compoents on server instead of browser and send the final product to browser called HTML 
+When we break it down , it is a way to prepare and render your compoents on server instead of browser and send the final product to browser called HTML,  which can appear to result in a fast First Contentful Paint or Largest Contentful Paint.
 
 so the most simplified step will looks something like this - JSX -> Server(runtime) -> HTML -> Client Browser.
 
@@ -37,7 +37,11 @@ With SSG, all the pages are generated at build time as static pages (with some J
 
 But like you can consider it like this SSG is more for static website like something that the data can be processed at a build time. so it is always available as props from layout as high level access. which we can deploy it on CDN . but SSG is like for dyanmic content but there exists a data that always up-to-date and let us generate an HTML from that.
 
+It is the limitation of SSR leads to us for most of the concepts around RSC. since JS is still need to be fetched from remote server just to go through hydration process. BUT what is hydration here tho ? Hydration is like water bringing a functionality to your body. it is like paiting of Javascript to our website to make it interactive for initially loaded page. You can break down the step ,   hydration = download html -> download js -> evaluate js -> attaching event listener -> paint the state. Yeah this step needs to be done even if it SSR'ed
+
 Enough of this concepts - lets get to RSC like i said .. it is something that makes react to be somehow more than UI framework .. Yeah it break it down.
+
+As i said it is like migrating from client first to server first or hybrid so that we can significant reduce a bundle size that shipped to the client so that they user would have a good UX. 
 
 
 
