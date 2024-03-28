@@ -8,4 +8,48 @@ authors:
 ---
 
 
+Hm... Quite Interesting
+
+They is a lot to cover about the new Mental Models / Archs that the react and Nextjs has come up with. Yeah we will discuss a lot of thing related to the RSC and Some points of confusion will be addressed.
+
+Earlier , React is supposed to replace HTML + JS concept by something called JSX - which is a bundled rich components that makes your website interactive and responsive to the user. that we call it a frontend framework. i.e framework is not libraries. libraries are meant to solve a specific set of closly related task which 
+you can call it as Module but they still have difference. Yeah the point is not this. so lets move on to our points.
+
+Traditional server-clinet model does the job but we need better user xp at scale or not - use DRY here - no more memoized roundtrip from client to servers if you could think of it as recurssive function so called DP - Dynamic Programming. which helds us using client react API to do all the job but it is not at a scale 
+so why dont we need something as preprocessor like C++ Macro tag - means liee somthing or somewhere the data can be store and process upfront and bringing the latest data to the end users. i am not saying this is the so effecient but it something that is not new for us. Devs lik PHP , Rails and other Server side langs not all but  been using this thing.
+
+however bring this in to life on client framework is something cool or somehow bad yeah but the idea of pruning data on sever for UI layer is pretty cool. 
+The clinet side is just no-brainer just what you want to see is there in react itself.
+
+Lets start by definining RSC by my own terms - It is new Mental model for react that allows us to kind of deviate us from client heavy to hybrid or server heavy model.
+Yeah we all know that React is all frontend framework , no idea about servers only cares about bundlers - ESbuilds :)
+
+I can also be saying RSC is aiming for zero-bundle-size React Server Components, which aim to enable modern UX with a server-driven mental model. BUt this is so different from SSR(more of dyanmic) and SSG (more of static). You will learn about this one also.
+
+So lets deep dive in , SSR is more technical word is like turning JSX into an HTML string, Yeah this is input and th bi-product symbosis.
+
+
+When we break it down , it is a way to prepare and render your compoents on server instead of browser and send the final product to browser called HTML 
+
+so the most simplified step will looks something like this - JSX -> Server(runtime) -> HTML -> Client Browser.
+
+With SSG, all the pages are generated at build time as static pages (with some Javascript tricks to load/preload content as fast as possible). The Time-To-First-Byte is the best you can get and you can host your website on a Static
+
+But like you can consider it like this SSG is more for static website like something that the data can be processed at a build time. so it is always available as props from layout as high level access. which we can deploy it on CDN . but SSG is like for dyanmic content but there exists a data that always up-to-date and let us generate an HTML from that.
+
+Enough of this concepts - lets get to RSC like i said .. it is something that makes react to be somehow more than UI framework .. Yeah it break it down.
+
+
+
+so what happens is
+1 - The user opens their browser and requests to open the webpage.
+2 - The server creates rendered content in HTML file and sends it to the user.
+3 - Maeanwhile the static assets can be loaded either from CDN , Edge or Dedicated Servers
+4 - So the user is not trapped in to the Client - server waterfalls means at least it can get the HTML down the wire instead of being blocked waiting for something cocked finished 
+
+With SSR, the website pages are generated at runtime on the server means it needs a runtime to serve those requests like Nodejs. The contents are also up-to-date even th roundtrip still persist from you to make a request and SSR gives you a latest data on server
+
+we can say like SSR provides a faster load time not build time , ideal for static sites , for SEO since it already made the crawler can index that up but it comes with some cons tho like server costs for data heavy apps , caching might be an issue here, also Time-To-First-Byte is a bit slower because the content is generated on the server for each request but you can prevent this from happening by adding a caching layer with short TTL(Time To Live) to impove the performance becuase you can not deploy it on the Static CDN 
+
+
 Coming sooon... wanna collab on this post - hit me up at [Telegram](https://t.me/Kinfe123)
