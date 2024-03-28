@@ -8,9 +8,11 @@ authors:
 ---
 
 
-Hm... Quite Interesting
+## Hm... Quite Interesting
 
 They is a lot to cover about the new Mental Models / Archs that the react and Nextjs has come up with. Yeah we will discuss a lot of thing related to the RSC and Some points of confusion will be addressed.
+
+#@ Good old days
 
 Earlier , React is supposed to replace HTML + JS concept by something called JSX - which is a bundled rich components that makes your website interactive and responsive to the user. that we call it a frontend framework. i.e framework is not libraries. libraries are meant to solve a specific set of closly related task which 
 you can call it as Module but they still have difference. Yeah the point is not this. so lets move on to our points.
@@ -21,17 +23,22 @@ so why dont we need something as preprocessor like C++ Macro tag - means liee so
 however bring this in to life on client framework is something cool or somehow bad yeah but the idea of pruning data on sever for UI layer is pretty cool. 
 The clinet side is just no-brainer just what you want to see is there in react itself.
 
+## RSC sratching the surface
+
 Lets start by definining RSC by my own terms - It is new Mental model for react that allows us to kind of deviate us from client heavy to hybrid or server heavy model.
 Yeah we all know that React is all frontend framework , no idea about servers only cares about bundlers - ESbuilds :)
 
 I can also be saying RSC is aiming for zero-bundle-size React Server Components, which aim to enable modern UX with a server-driven mental model. BUt this is so different from SSR(more of dyanmic) and SSG (more of static). You will learn about this one also.
 
+
+## SSR vs SSG ?  The combo ? 
 So lets deep dive in , SSR is more technical word is like turning JSX into an HTML string, Yeah this is input and th bi-product symbosis.
 
 
 When we break it down , it is a way to prepare and render your compoents on server instead of browser and send the final product to browser called HTML,  which can appear to result in a fast First Contentful Paint or Largest Contentful Paint.
 
 so the most simplified step will looks something like this - JSX -> Server(runtime) -> HTML -> Client Browser.
+
 
 With SSG, all the pages are generated at build time as static pages (with some Javascript tricks to load/preload content as fast as possible). The Time-To-First-Byte is the best you can get and you can host your website on a Static
 
