@@ -63,4 +63,12 @@ With SSR, the website pages are generated at runtime on the server means it need
 we can say like SSR provides a faster load time not build time , ideal for static sites , for SEO since it already made the crawler can index that up but it comes with some cons tho like server costs for data heavy apps , caching might be an issue here, also Time-To-First-Byte is a bit slower because the content is generated on the server for each request but you can prevent this from happening by adding a caching layer with short TTL(Time To Live) to impove the performance becuase you can not deploy it on the Static CDN 
 
 
+So RSC and SSR ar not the same thing but they are so complimentary to each other ,  enabling rendering into an intermediate abstraction format without needing to add to the JavaScript bundle ,this allows us for merging JSX tree node so called server tree with the client tree node without lossing any kind of state and interactivity. 
+
+
+## Server Components - Bad a** niggas
+
+Those are the components that are render only on the sever. Those are the one that will be streamed down to the client browser. also they are a replacement for SSR but creating a really fast early paint and reduce JS bundles that the client needs to download. this not meant to dump on the JS , still JS is the most important part of it. since you can not avoid it , atleast we make something around and optimize it because **GREAT POWER COMES WITH GREAT CHUNK** 
+
+
 Coming sooon... wanna collab on this post - hit me up at [Telegram](https://t.me/Kinfe123)
