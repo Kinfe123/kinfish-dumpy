@@ -86,10 +86,7 @@ streaming data and present the UI as soon as they are available.
 ```js
 <Suspense fallback={<LoadingForAsyncComp />}>
   <SomeAsyncComp />
-
 </Suspense>
-
-
 ```
 
 here on the above we are streaming a data from server to client , also something that could take us sometimee like fetching from remote servers , yeah until all things get resolved when can make sure to display the fallback.
