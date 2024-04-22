@@ -41,7 +41,7 @@ const BlogHeader = ({ totalViews }: { totalViews: number }) => {
           variants={FADE_DOWN_ANIMATION_VARIANTS}
           className="mt-6 text-lg leading-8"
         >
-          A collection of hand made deand crafted thought from KiNFiSH
+          A collection of hand made and crafted thought from KiNFiSH
         </motion.p>
 
         <motion.p
